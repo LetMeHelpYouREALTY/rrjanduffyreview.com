@@ -1,8 +1,5 @@
-import { Reviews } from "@/components/reviews";
-import { getProduct } from "@/lib/sample-data";
+import ReviewSite from "@/components/ReviewSite";
 
-export default async function Home() {
-  const product = await getProduct("mower");
-
-  return <Reviews product={product} />;
+export default function Home() {
+  return <ReviewSite />;
 }
