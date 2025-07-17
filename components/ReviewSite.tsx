@@ -2,29 +2,50 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { Star, MapPin, Phone, Mail, Award, Users, Home, Calendar } from 'lucide-react';
 
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Dr. Jan Duffy REALTOR",
-  "image": "",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "123 Main Street",
-    "addressLocality": "Your City",
-    "addressRegion": "ST",
-    "postalCode": "12345",
-    "addressCountry": "US"
+const officeLocations = [
+  {
+    name: "Centennial Hills",
+    address: "9406 Del Webb Boulevard, Las Vegas, NV 89134",
+    phone: "(702) 718-0043",
+    maps: "https://www.google.com/maps/search/?api=1&query=9406+Del+Webb+Boulevard,+Las+Vegas,+NV+89134"
   },
-  "telephone": "(555) 123-4567",
-  "email": "jan.duffy@email.com",
-  "url": "https://rrjanduffyreview.com",
-  "areaServed": ["Summerlin West", "Lone Mountain", "Sky Canyon", "North Las Vegas"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "8"
+  {
+    name: "Henderson",
+    address: "3185 St Rose Pkwy, Suite 101, Henderson, NV 89052",
+    phone: "(702) 500-1955",
+    maps: "https://www.google.com/maps/search/?api=1&query=3185+St+Rose+Pkwy,+Suite+101,+Henderson,+NV+89052"
+  },
+  {
+    name: "Sunset",
+    address: "8850 W Sunset Rd UNIT 200, Las Vegas, NV 89148",
+    phone: "(702) 500-1942",
+    maps: "https://www.google.com/maps/search/?api=1&query=8850+W+Sunset+Rd+UNIT+200,+Las+Vegas,+NV+89148"
+  },
+  {
+    name: "Summerlin",
+    address: "1490 Center Crossing Rd, Las Vegas, NV 89144",
+    phone: "(702) 903-1952",
+    maps: "https://www.google.com/maps/search/?api=1&query=1490+Center+Crossing+Rd,+Las+Vegas,+NV+89144"
+  },
+  {
+    name: "Sahara",
+    address: "7475 W Sahara Ave #100, Las Vegas, NV 89117",
+    phone: "(702) 299-6607",
+    maps: "https://www.google.com/maps/search/?api=1&query=7475+W+Sahara+Ave+%23100,+Las+Vegas,+NV+89117"
+  },
+  {
+    name: "Lone Mountain",
+    address: "10777 W Twain Ave #333, Las Vegas, NV 89129",
+    phone: "(702) 678-9012",
+    maps: "https://www.google.com/maps/search/?api=1&query=10777+W+Twain+Ave+%23333,+Las+Vegas,+NV+89129"
+  },
+  {
+    name: "North Las Vegas",
+    address: "921 South Main Street, Las Vegas, NV 89101",
+    phone: "(702) 500-1980",
+    maps: "https://www.google.com/maps/search/?api=1&query=921+South+Main+Street,+Las+Vegas,+NV+89101"
   }
-};
+];
 
 const reviewsSchema = [
   {
@@ -103,6 +124,29 @@ const reviewsSchema = [
     "datePublished": "2023-10-28"
   }
 ];
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Dr. Jan Duffy REALTOR",
+  "image": "",
+  "url": "https://rrjanduffyreview.com",
+  "email": "jan.duffy@email.com",
+  "areaServed": ["Summerlin West", "Lone Mountain", "Sky Canyon", "North Las Vegas"],
+  "location": officeLocations.map(loc => ({
+    "@type": "PostalAddress",
+    "streetAddress": loc.address,
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "addressCountry": "US",
+    "telephone": loc.phone
+  })),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "8"
+  }
+};
 
 const ReviewSite = () => {
   // Sample reviews - replace with actual reviews
@@ -414,32 +458,29 @@ const ReviewSite = () => {
         {/* Contact Section */}
         <section className="bg-gray-900 text-white py-16">
           <div className="max-w-6xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Explore Las Vegas?</h2>
+            <h2 className="text-3xl font-bold mb-4">Our Offices</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Contact Dr. Jan Duffy today to discuss your real estate needs in Summerlin West, Lone Mountain, Sky Canyon, or North Las Vegas
+              Contact Dr. Jan Duffy at any of these convenient Las Vegas area locations.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="flex flex-col items-center">
-                <div className="bg-blue-600 rounded-full p-4 mb-4">
-                  <Phone className="h-6 w-6" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {officeLocations.map((office, idx) => (
+                <div key={idx} className="flex flex-col items-center bg-gray-800 rounded-lg p-6 mb-4">
+                  <div className="bg-blue-600 rounded-full p-4 mb-4">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{office.name}</h3>
+                  <p className="text-gray-300 mb-2">{office.address}</p>
+                  <p className="text-gray-300 mb-2">{office.phone}</p>
+                  <a
+                    href={office.maps}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 underline text-sm"
+                  >
+                    Get Directions
+                  </a>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Call</h3>
-                <p className="text-gray-300">(555) 123-4567</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="bg-blue-600 rounded-full p-4 mb-4">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Email</h3>
-                <p className="text-gray-300">jan.duffy@email.com</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="bg-blue-600 rounded-full p-4 mb-4">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Office</h3>
-                <p className="text-gray-300">123 Main Street<br />Your City, ST 12345</p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
