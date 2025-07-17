@@ -48,7 +48,7 @@ ${product.reviews
   .join("\n\n")}`;
 
   const query = {
-    model: "pplx-7b-chat",
+    model: "pplx-70b-chat",
     stream: true,
     messages: buildPrompt(prompt),
     max_tokens: 1000,
