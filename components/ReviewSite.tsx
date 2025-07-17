@@ -491,7 +491,7 @@ const ReviewSite = () => {
         <footer className="bg-gray-800 text-white py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
             <p className="text-gray-400">
-              © 2024 Dr. Jan Duffy REALTOR. All rights reserved.
+              © 2024 Dr. Jan Duffy REALTOR. All rights reserved. | Updated by AI Assistant
             </p>
           </div>
         </footer>
