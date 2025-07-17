@@ -49,7 +49,7 @@ ${product.reviews
   .join("\n\n")}`;
 
   const query = {
-    model: "pplx-70b-chat",
+    model: "sonar-pro",
     stream: true,
     messages: buildPrompt(prompt),
     max_tokens: 1000,
