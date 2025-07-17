@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { sampleProductsReviews } from "@/lib/sample-data";
+// Removed: import { sampleProductsReviews } from "@/lib/sample-data";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const products = sampleProductsReviews;
+  // Removed: const products = sampleProductsReviews;
   return (
     <html lang="en">
       <head>
