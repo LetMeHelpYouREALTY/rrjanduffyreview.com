@@ -1,12 +1,6 @@
-import { notFound } from "next/navigation";
-import { Product } from "./types";
+/**
+ * Sample e-commerce product review data was removed when the site pivoted to real estate.
+ * This file remains as a stub for any stale imports; nothing is exported.
+ */
 
-export async function getProduct(id: string) {
-  const product = sampleProductsReviews[id] as Product;
-  if (!product) {
-    notFound();
-  }
-  return product;
-}
-
-// All sample product review data removed as the site is now real estate–focused.
+export {};

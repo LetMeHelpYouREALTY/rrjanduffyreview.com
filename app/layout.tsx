@@ -1,14 +1,34 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import Script from "next/script";
 import Link from "next/link";
-// Removed: import { sampleProductsReviews } from "@/lib/sample-data";
+import "./globals.css";
+import { getRealScoutAgentEncodedId } from "@/lib/realscout-config";
+import { CalendlySiteWidgets } from "@/components/CalendlySiteWidgets";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://rrjanduffyreview.com";
+
+const realscoutAgentId = getRealScoutAgentEncodedId();
+
 export const metadata: Metadata = {
-  title: "Review summary",
-  description: "AI summaries of customer reviews",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default:
+      "Client Reviews | Dr. Jan Duffy, REALTOR | Las Vegas & Henderson",
+    template: "%s | Dr. Jan Duffy, REALTOR",
+  },
+  description:
+    "Client reviews and Las Vegas Valley real estate expertise from Dr. Jan Duffy, REALTOR. Berkshire Hathaway HomeServices Nevada Properties. Testimonials, offices, neighborhoods, and MLS search via RealScout.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Dr. Jan Duffy — Client reviews",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -16,33 +36,79 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Removed: const products = sampleProductsReviews;
   return (
     <html lang="en">
-      <head>
-        <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module"></script>
-        <style>{`
-          realscout-simple-search {
-            --rs-ss-font-primary-color: #726a6d;
-            --rs-ss-searchbar-border-color: #1d6fbd;
-            --rs-ss-box-shadow: 0 10px 15px -3px #0000001a;
-            --rs-ss-widget-width: 500px !important;
-          }
-        `}</style>
-      </head>
       <body className={inter.className}>
-        <nav className="flex justify-center gap-8 py-4 border-b mb-8 bg-white shadow-sm">
-          <Link className="text-lg font-semibold hover:text-blue-700 transition" href="/">Home</Link>
-          <a className="text-lg font-semibold hover:text-blue-700 transition" href="#about">Meet Dr. Jan Duffy</a>
-          <a className="text-lg font-semibold hover:text-blue-700 transition" href="#reviews">Client Reviews</a>
-          <a className="text-lg font-semibold hover:text-blue-700 transition" href="#neighborhoods">Neighborhoods</a>
-          <a className="text-lg font-semibold hover:text-blue-700 transition" href="#offices">Offices</a>
-          <a className="text-lg font-semibold hover:text-blue-700 transition" href="#contact">Contact</a>
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          strategy="afterInteractive"
+          type="module"
+        />
+        <nav className="flex flex-wrap justify-center gap-4 md:gap-8 py-4 border-b mb-8 bg-white shadow-sm px-2">
+          <Link
+            className="text-base font-semibold hover:text-blue-700 transition"
+            href="/"
+          >
+            Home
+          </Link>
+          <a
+            className="text-base font-semibold hover:text-blue-700 transition"
+            href="#about"
+          >
+            Meet Dr. Jan Duffy
+          </a>
+          <a
+            className="text-base font-semibold hover:text-blue-700 transition"
+            href="#reviews"
+          >
+            Client Reviews
+          </a>
+          <a
+            className="text-base font-semibold hover:text-blue-700 transition"
+            href="#neighborhoods"
+          >
+            Neighborhoods
+          </a>
+          <a
+            className="text-base font-semibold hover:text-blue-700 transition"
+            href="#contact"
+          >
+            Contact
+          </a>
+          <a
+            className="text-base font-semibold hover:text-blue-700 transition"
+            href="#offices"
+          >
+            Offices
+          </a>
         </nav>
-        <div className="flex justify-center mb-8">
-          <realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>
+        <div className="flex justify-center mb-8 px-4">
+          <realscout-simple-search
+            agent-encoded-id={realscoutAgentId}
+          ></realscout-simple-search>
         </div>
+        <section
+          aria-label="Office listings"
+          className="max-w-6xl mx-auto px-4 mb-10"
+        >
+          <h2 className="text-xl font-semibold text-gray-900 text-center mb-4">
+            Office listings
+          </h2>
+          <p className="text-center text-sm text-gray-600 mb-4 max-w-2xl mx-auto">
+            Current inventory from Dr. Jan Duffy&apos;s office feed via RealScout.
+            For broader search, use the bar above.
+          </p>
+          <div className="widget-wrapper rounded-lg border border-gray-200 bg-white p-2 md:p-4 shadow-sm">
+            <realscout-office-listings
+              agent-encoded-id={realscoutAgentId}
+              sort-order="NEWEST"
+              listing-status="For Sale,For Rent,Sold"
+              property-types=""
+            />
+          </div>
+        </section>
         <main className="pt-6">{children}</main>
+        <CalendlySiteWidgets />
       </body>
     </html>
   );

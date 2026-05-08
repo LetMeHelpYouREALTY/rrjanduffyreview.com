@@ -61,8 +61,8 @@ ${product.reviews
   return unstable_cache(async () => {
     const response = await perplexity.chat.completions.create(query);
 
-    // Convert the response into a friendly text-stream
-    const stream = OpenAIStream(response);
+    // OpenAI-compatible stream from Perplexity; `ai` OpenAIStream types target a narrower union.
+    const stream = OpenAIStream(response as Parameters<typeof OpenAIStream>[0]);
 
     // Respond with the stream
     const streamingResponse = new StreamingTextResponse(stream);
