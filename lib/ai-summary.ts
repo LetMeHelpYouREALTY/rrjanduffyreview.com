@@ -1,18 +1,19 @@
-// Force update for Perplexity model fix
 import { unstable_cache } from "next/cache";
 import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import { Product } from "./types";
 
-if (!process.env.PERPLEXITY_API_KEY) {
-  throw new Error(
-    "PERPLEXITY_API_KEY environment variable is required. You can get this via https://vercel.com/docs/integrations/ai"
-  );
+const FALLBACK =
+  "An AI-generated summary is not available right now. Please read the full reviews below for client feedback.";
+
+function getPerplexityClient(): OpenAI | null {
+  const key = process.env.PERPLEXITY_API_KEY?.trim();
+  if (!key) return null;
+  return new OpenAI({
+    apiKey: key,
+    baseURL: "https://api.perplexity.ai",
+  });
 }
-const perplexity = new OpenAI({
-  apiKey: process.env.PERPLEXITY_API_KEY || "",
-  baseURL: "https://api.perplexity.ai",
-});
 
 export async function summarizeReviews(product: Product) {
   const averageRating =
@@ -58,28 +59,39 @@ ${product.reviews
     frequency_penalty: 1,
   } as const;
 
-  return unstable_cache(async () => {
-    const response = await perplexity.chat.completions.create(query);
+  const clientForBuild = getPerplexityClient();
+  if (!clientForBuild) {
+    return FALLBACK;
+  }
 
-    // OpenAI-compatible stream from Perplexity; `ai` OpenAIStream types target a narrower union.
-    const stream = OpenAIStream(response as Parameters<typeof OpenAIStream>[0]);
-
-    // Respond with the stream
-    const streamingResponse = new StreamingTextResponse(stream);
-    let text = await streamingResponse.text();
-    // Remove the quotes from the response tht the LLM sometimes adds.
-    text = text
-      .trim()
-      .replace(/^"/, "")
-      .replace(/"$/, "")
-      .replace(/[\[\(]\d+ words[\]\)]/g, "");
-    return text;
-  }, [
-    JSON.stringify(query),
-    "1.0",
-    process.env.VERCEL_BRANCH_URL || "",
-    process.env.NODE_ENV || "",
-  ])();
+  return unstable_cache(
+    async () => {
+      const client = getPerplexityClient();
+      if (!client) return FALLBACK;
+      try {
+        const response = await client.chat.completions.create(query);
+        const stream = OpenAIStream(
+          response as Parameters<typeof OpenAIStream>[0],
+        );
+        const streamingResponse = new StreamingTextResponse(stream);
+        let text = await streamingResponse.text();
+        text = text
+          .trim()
+          .replace(/^"/, "")
+          .replace(/"$/, "")
+          .replace(/[\[\(]\d+ words[\]\)]/g, "");
+        return text;
+      } catch {
+        return FALLBACK;
+      }
+    },
+    [
+      JSON.stringify(query),
+      "2.0",
+      process.env.VERCEL_BRANCH_URL || "",
+      process.env.NODE_ENV || "",
+    ],
+  )();
 }
 
 function buildPrompt(prompt: string): [{ role: "user"; content: string }] {
