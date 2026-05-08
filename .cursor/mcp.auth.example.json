@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "parallel-search": {
+      "url": "https://search.parallel.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:PARALLEL_API_KEY}"
+      }
+    }
+  }
+}

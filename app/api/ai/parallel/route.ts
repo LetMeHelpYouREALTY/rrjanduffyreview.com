@@ -57,14 +57,35 @@ export async function POST(request: Request) {
     8,
   );
 
+  const mode =
+    process.env.PARALLEL_SEARCH_MODE?.trim().toLowerCase() === "agentic"
+      ? "agentic"
+      : "one-shot";
+
+  const excludeDomains = parseCommaSeparatedList(
+    process.env.PARALLEL_SEARCH_EXCLUDE_DOMAINS,
+  );
+  const includeDomains = parseCommaSeparatedList(
+    process.env.PARALLEL_SEARCH_INCLUDE_DOMAINS,
+  );
+
+  const parallelSearchConfig: Parameters<
+    typeof gateway.tools.parallelSearch
+  >[0] = {
+    mode,
+    maxResults,
+    ...(excludeDomains?.length
+      ? { sourcePolicy: { excludeDomains } }
+      : includeDomains?.length
+        ? { sourcePolicy: { includeDomains } }
+        : {}),
+  };
+
   const result = streamText({
     model,
     prompt,
     tools: {
-      parallel_search: gateway.tools.parallelSearch({
-        mode: "one-shot",
-        maxResults,
-      }),
+      parallel_search: gateway.tools.parallelSearch(parallelSearchConfig),
     },
   });
 
@@ -85,4 +106,14 @@ function clampInt(
 ): number {
   if (value == null) return fallback;
   return Math.min(max, Math.max(min, value));
+}
+
+/** Comma-separated domains for Parallel sourcePolicy (exclude wins if both set). */
+function parseCommaSeparatedList(raw: string | undefined): string[] | undefined {
+  if (raw == null || raw.trim() === "") return undefined;
+  const parts = raw
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  return parts.length > 0 ? parts : undefined;
 }
