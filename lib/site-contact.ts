@@ -38,10 +38,20 @@ export const OFFICE_HOURS_LINES = [
   "Saturday–Sunday: By appointment",
 ] as const;
 
+const DEFAULT_SITE_URL = "https://rrjanduffyreview.com";
+
+/**
+ * Canonical site origin for metadata, sitemap, and JSON-LD.
+ * Ensures a valid absolute URL so `new URL(...)` in layout metadata never throws
+ * when env sets `NEXT_PUBLIC_BASE_URL` without a scheme (e.g. `www.example.com`).
+ */
 export function getPublicSiteUrl(): string {
-  return (
-    process.env.NEXT_PUBLIC_BASE_URL ?? "https://rrjanduffyreview.com"
-  ).replace(/\/$/, "");
+  const raw = (process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_SITE_URL).trim();
+  const noTrail = raw.replace(/\/+$/, "");
+  if (!noTrail) return DEFAULT_SITE_URL;
+  if (/^https?:\/\//i.test(noTrail)) return noTrail;
+  const host = noTrail.replace(/^\/+/, "");
+  return `https://${host}`.replace(/\/+$/, "");
 }
 
 export function formatTelHref(displayPhone: string): string {
