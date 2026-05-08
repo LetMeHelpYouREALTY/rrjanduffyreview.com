@@ -1,6 +1,5 @@
 import { unstable_cache } from "next/cache";
 import OpenAI from "openai";
-import { OpenAIStream, StreamingTextResponse } from "ai";
 import { Product } from "./types";
 
 const FALLBACK =
@@ -51,7 +50,7 @@ ${product.reviews
 
   const query = {
     model: "sonar-pro",
-    stream: true,
+    stream: false,
     messages: buildPrompt(prompt),
     max_tokens: 1000,
     temperature: 0.75,
@@ -70,17 +69,14 @@ ${product.reviews
       if (!client) return FALLBACK;
       try {
         const response = await client.chat.completions.create(query);
-        const stream = OpenAIStream(
-          response as Parameters<typeof OpenAIStream>[0],
-        );
-        const streamingResponse = new StreamingTextResponse(stream);
-        let text = await streamingResponse.text();
-        text = text
+        const raw = response.choices[0]?.message?.content;
+        const text = typeof raw === "string" ? raw : "";
+        const cleaned = text
           .trim()
           .replace(/^"/, "")
           .replace(/"$/, "")
           .replace(/[\[\(]\d+ words[\]\)]/g, "");
-        return text;
+        return cleaned.length > 0 ? cleaned : FALLBACK;
       } catch {
         return FALLBACK;
       }
