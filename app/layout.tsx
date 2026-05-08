@@ -1,32 +1,52 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Atkinson_Hyperlegible,
+  Source_Sans_3,
+  Inter,
+} from "next/font/google";
 import Script from "next/script";
-import Link from "next/link";
 import "./globals.css";
-import { getRealScoutAgentEncodedId } from "@/lib/realscout-config";
 import { CalendlySiteWidgets } from "@/components/CalendlySiteWidgets";
+import { SiteHeader } from "@/components/SiteHeader";
+import { buildCalendlyUrl } from "@/lib/calendly";
+import { getPublicSiteUrl } from "@/lib/site-contact";
 
-const inter = Inter({ subsets: ["latin"] });
+const atkinson = Atkinson_Hyperlegible({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_BASE_URL ?? "https://rrjanduffyreview.com";
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
-const realscoutAgentId = getRealScoutAgentEncodedId();
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-label",
+  display: "swap",
+});
 
+const siteUrl = getPublicSiteUrl();
+
+const consultationHref = buildCalendlyUrl(
+  process.env.NEXT_PUBLIC_CALENDLY_TOUR_URL?.trim() ?? "",
+  {
+    utm_source: "rrjanduffyreview.com",
+    utm_medium: "website",
+    utm_campaign: "site_header",
+  },
+);
+
+/** Layout-level defaults; homepage overrides via app/page.tsx. */
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default:
-      "Client Reviews | Dr. Jan Duffy, REALTOR | Las Vegas & Henderson",
     template: "%s | Dr. Jan Duffy, REALTOR",
-  },
-  description:
-    "Client reviews and Las Vegas Valley real estate expertise from Dr. Jan Duffy, REALTOR. Berkshire Hathaway HomeServices Nevada Properties. Testimonials, offices, neighborhoods, and MLS search via RealScout.",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteUrl,
-    siteName: "Dr. Jan Duffy — Client reviews",
+    default: "Dr. Jan Duffy, REALTOR — Las Vegas reviews",
   },
   robots: { index: true, follow: true },
 };
@@ -37,77 +57,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html
+      lang="en"
+      className={`${atkinson.variable} ${sourceSans.variable} ${inter.variable}`}
+    >
+      <body className={`${sourceSans.className} font-sans antialiased`}>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-0 z-[100] -translate-y-[120%] opacity-0 transition focus:translate-y-4 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 bg-secondary text-on-secondary px-4 py-2 rounded-md text-sm font-semibold shadow-lg"
+        >
+          Skip to main content
+        </a>
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           strategy="afterInteractive"
           type="module"
         />
-        <nav className="flex flex-wrap justify-center gap-4 md:gap-8 py-4 border-b mb-8 bg-white shadow-sm px-2">
-          <Link
-            className="text-base font-semibold hover:text-blue-700 transition"
-            href="/"
-          >
-            Home
-          </Link>
-          <a
-            className="text-base font-semibold hover:text-blue-700 transition"
-            href="#about"
-          >
-            Meet Dr. Jan Duffy
-          </a>
-          <a
-            className="text-base font-semibold hover:text-blue-700 transition"
-            href="#reviews"
-          >
-            Client Reviews
-          </a>
-          <a
-            className="text-base font-semibold hover:text-blue-700 transition"
-            href="#neighborhoods"
-          >
-            Neighborhoods
-          </a>
-          <a
-            className="text-base font-semibold hover:text-blue-700 transition"
-            href="#contact"
-          >
-            Contact
-          </a>
-          <a
-            className="text-base font-semibold hover:text-blue-700 transition"
-            href="#offices"
-          >
-            Offices
-          </a>
-        </nav>
-        <div className="flex justify-center mb-8 px-4">
-          <realscout-simple-search
-            agent-encoded-id={realscoutAgentId}
-          ></realscout-simple-search>
-        </div>
-        <section
-          aria-label="Office listings"
-          className="max-w-6xl mx-auto px-4 mb-10"
-        >
-          <h2 className="text-xl font-semibold text-gray-900 text-center mb-4">
-            Office listings
-          </h2>
-          <p className="text-center text-sm text-gray-600 mb-4 max-w-2xl mx-auto">
-            Current inventory from Dr. Jan Duffy&apos;s office feed via RealScout.
-            For broader search, use the bar above.
-          </p>
-          <div className="widget-wrapper rounded-lg border border-gray-200 bg-white p-2 md:p-4 shadow-sm">
-            <realscout-office-listings
-              agent-encoded-id={realscoutAgentId}
-              sort-order="NEWEST"
-              listing-status="For Sale,For Rent,Sold"
-              property-types=""
-            />
-          </div>
-        </section>
-        <main className="pt-6">{children}</main>
+        <SiteHeader consultationHref={consultationHref} />
+        <main id="main-content">{children}</main>
         <CalendlySiteWidgets />
       </body>
     </html>

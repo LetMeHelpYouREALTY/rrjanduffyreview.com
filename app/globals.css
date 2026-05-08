@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Clinical Clarity — stitch design tokens (clinical_clarity/DESIGN.md); copy is real-estate. */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color-surface: #f9f9ff;
+  --color-surface-container-low: #f1f3ff;
+  --color-surface-container: #e9edff;
+  --color-surface-container-high: #e1e8fd;
+  --color-on-surface: #141b2b;
+  --color-on-surface-variant: #444651;
+  --color-inverse-surface: #293040;
+  --color-inverse-on-surface: #edf0ff;
+  --color-outline: #757682;
+  --color-outline-variant: #c5c5d3;
+  --color-primary: #00236f;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1e3a8a;
+  --color-secondary: #0051d5;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #316bf3;
+  --color-chip-bg: #e1e8fd;
+  --color-insight-bg: #dce1ff;
+  --color-btn-primary-bg: #0051d5;
+  --color-btn-primary-fg: #ffffff;
+  --grid-line: rgba(0, 35, 111, 0.08);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .bg-research-grid {
+    background-color: var(--color-surface-container-low);
+    background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .diagonal-accent {
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 6px,
+      rgba(0, 35, 111, 0.06) 6px,
+      rgba(0, 35, 111, 0.06) 7px
+    );
+  }
+
+  /* Accessible focus ring per Stitch (thick outline on inputs site-wide where applicable) */
+  .focus-ring-clinical:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
-/* RealScout simple search (portfolio: theme tokens) */
 realscout-simple-search {
-  --rs-ss-font-primary-color: #726a6d;
-  --rs-ss-searchbar-border-color: #1d6fbd;
-  --rs-ss-box-shadow: 0 10px 15px -3px #0000001a;
+  --rs-ss-font-primary-color: #444651;
+  --rs-ss-searchbar-border-color: #0051d5;
+  --rs-ss-box-shadow: 0 1px 3px rgba(20, 27, 43, 0.08);
   --rs-ss-widget-width: 500px !important;
 }
