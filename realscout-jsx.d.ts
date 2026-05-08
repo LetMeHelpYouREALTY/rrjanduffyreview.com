@@ -1,16 +1,19 @@
-/// <reference types="react" />
+import type {
+  DetailedHTMLProps,
+  HTMLAttributes,
+} from "react";
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
-      "realscout-simple-search": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
+      "realscout-simple-search": DetailedHTMLProps<
+        HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
         "agent-encoded-id"?: string;
       };
-      "realscout-office-listings": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
+      "realscout-office-listings": DetailedHTMLProps<
+        HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
         "agent-encoded-id"?: string;

@@ -11,6 +11,7 @@ import {
   getPublicSiteUrl,
 } from "@/lib/site-contact";
 import { getHomeFaqItems } from "@/lib/faq-home";
+import { BHHS_NEVADA_PUBLIC_URL } from "@/lib/public-resources";
 
 type ReviewSeed = {
   id: number;
@@ -71,6 +72,10 @@ export function buildHomeStructuredDataGraph(params: {
       postalCode: PRIMARY_POSTAL,
       addressCountry: "US",
     },
+    knowsAbout: [
+      "Nevada residential real estate brokerage",
+      "Las Vegas Valley buyer and seller representation",
+    ],
     areaServed: [
       { "@type": "Place", name: "Summerlin West, Las Vegas, NV" },
       { "@type": "Place", name: "Lone Mountain, Las Vegas, NV" },
@@ -133,7 +138,7 @@ export function buildHomeStructuredDataGraph(params: {
       "@type": "Organization",
       "@id": brokerageId,
       name: SUPERVISING_BROKERAGE,
-      url: base,
+      url: BHHS_NEVADA_PUBLIC_URL,
     },
     agent,
     {

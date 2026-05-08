@@ -35,6 +35,9 @@ export function SiteHeader({ consultationHref }: SiteHeaderProps) {
           <a className={navClassName} href="#faq">
             FAQ
           </a>
+          <a className={navClassName} href="#trust-disclosures">
+            Trust
+          </a>
           <a className={navClassName} href="#contact">
             Contact
           </a>

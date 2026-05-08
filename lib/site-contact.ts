@@ -38,7 +38,7 @@ export const OFFICE_HOURS_LINES = [
   "Saturday–Sunday: By appointment",
 ] as const;
 
-const DEFAULT_SITE_URL = "https://rrjanduffyreview.com";
+const DEFAULT_SITE_URL = "https://www.drjanduffyreviews.com";
 
 /**
  * Canonical site origin for metadata, sitemap, and JSON-LD.

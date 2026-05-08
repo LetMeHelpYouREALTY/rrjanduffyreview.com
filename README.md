@@ -1,4 +1,4 @@
-# rrjanduffyreview.com — Client reviews (Dr. Jan Duffy)
+# drjanduffyreviews.com — Client reviews (Dr. Jan Duffy)
 
 Single-page marketing site for **Dr. Jan Duffy, REALTOR** (Las Vegas Valley): client testimonials, office locations, neighborhood context, **RealScout** search, and optional **AI-generated review summaries** via the Vercel AI SDK.
 

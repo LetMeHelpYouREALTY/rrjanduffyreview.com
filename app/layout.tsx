@@ -35,7 +35,7 @@ const siteUrl = getPublicSiteUrl();
 const consultationHref = buildCalendlyUrl(
   process.env.NEXT_PUBLIC_CALENDLY_TOUR_URL?.trim() ?? "",
   {
-    utm_source: "rrjanduffyreview.com",
+    utm_source: "www.drjanduffyreviews.com",
     utm_medium: "website",
     utm_campaign: "site_header",
   },

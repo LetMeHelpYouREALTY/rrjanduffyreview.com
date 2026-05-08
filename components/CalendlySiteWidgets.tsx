@@ -38,13 +38,13 @@ export function CalendlySiteWidgets() {
     process.env.NEXT_PUBLIC_CALENDLY_CONSULTATION_URL?.trim() ?? "";
 
   const tourUrl = buildCalendlyUrl(rawTour, {
-    utm_source: "rrjanduffyreview.com",
+    utm_source: "www.drjanduffyreviews.com",
     utm_medium: "website",
     utm_campaign: "inline_tour",
   });
 
   const consultUrl = buildCalendlyUrl(rawConsult || rawTour, {
-    utm_source: "rrjanduffyreview.com",
+    utm_source: "www.drjanduffyreviews.com",
     utm_medium: "website",
     utm_campaign: "inline_consultation",
   });
