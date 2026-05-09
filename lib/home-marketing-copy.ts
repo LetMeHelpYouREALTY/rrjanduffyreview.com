@@ -26,6 +26,11 @@ export const HOME_MARKETING_COPY_RAW = {
   listingsBlurb:
     "Live inventory synced through {{agent}}'s RealScout MLS feed—from Sun City and Del Webb resale to newer Stonebridge-era product and classic Summerlin West streets. Dial in criteria with the search module above whenever you want to widen filters.",
 
+  mlsSearchHeading: "Live MLS search — Summerlin & the Valley",
+
+  mlsSearchBlurb:
+    "Run the same RealScout MLS module as {{agent}}'s listings hub—refine price, beds, baths, and community lines before you scan office-sponsored inventory below.",
+
   marketMetricsHeading: "Summerlin & 55+ market indicators",
 
   marketMetricsBlurb:
@@ -48,6 +53,8 @@ function buildMarketingCopy(): HomeMarketingCopy {
     heroSupportingParagraph: expandMarketingTokens(r.heroSupportingParagraph),
     listingsHeading: expandMarketingTokens(r.listingsHeading),
     listingsBlurb: expandMarketingTokens(r.listingsBlurb),
+    mlsSearchHeading: expandMarketingTokens(r.mlsSearchHeading),
+    mlsSearchBlurb: expandMarketingTokens(r.mlsSearchBlurb),
     marketMetricsHeading: expandMarketingTokens(r.marketMetricsHeading),
     marketMetricsBlurb: expandMarketingTokens(r.marketMetricsBlurb),
     contactHeading: expandMarketingTokens(r.contactHeading),

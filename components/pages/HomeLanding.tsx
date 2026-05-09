@@ -11,6 +11,8 @@ import {
   NEVADA_LICENSE,
   SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { HOME_REVIEW_SEED } from "@/lib/home-review-seed";
 
 const HERO_IMAGE =
@@ -121,6 +123,9 @@ export function HomeLanding() {
           </div>
         </div>
       </div>
+
+      <DeferredSimpleSearchBand />
+      <DeferredOfficeListingsBand />
 
       <nav
         aria-label="Key pages"

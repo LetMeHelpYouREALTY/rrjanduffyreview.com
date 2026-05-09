@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 
 const RESEARCH_IMAGE =
   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80";
@@ -70,6 +72,8 @@ export default function CommunityResearchSection({
           </div>
         </div>
       </div>
+      <DeferredSimpleSearchBand />
+      <DeferredOfficeListingsBand />
     </section>
   );
 }

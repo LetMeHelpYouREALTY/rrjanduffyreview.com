@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { getRealScoutAgentEncodedId } from "@/lib/realscout-config";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { homeMarketingCopy } from "@/lib/home-marketing-copy";
-
-const realscoutAgentId = getRealScoutAgentEncodedId();
 
 export default function ListingsSections() {
   return (
     <div className="min-h-screen bg-surface text-on-surface py-10 md:py-14 scroll-mt-32">
       <div className="flex justify-center py-10 px-4 bg-surface" id="property-search">
-        <realscout-simple-search agent-encoded-id={realscoutAgentId} />
+        <DeferredSimpleSearchBand embedded />
       </div>
       <section
         aria-label="Office listings"
@@ -29,14 +28,7 @@ export default function ListingsSections() {
         <p className="text-on-surface-variant mb-6 max-w-2xl leading-relaxed">
           {homeMarketingCopy.listingsBlurb}
         </p>
-        <div className="widget-wrapper border border-outline/15 bg-surface-container-low p-2 md:p-4">
-          <realscout-office-listings
-            agent-encoded-id={realscoutAgentId}
-            sort-order="NEWEST"
-            listing-status="For Sale,For Rent,Sold"
-            property-types=""
-          />
-        </div>
+        <DeferredOfficeListingsBand embedded />
       </section>
     </div>
   );

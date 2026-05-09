@@ -67,7 +67,7 @@ META DESCRIPTION: ${HOME_DESCRIPTION}
 After searching, reply with ONLY a single JSON object (no markdown fences, no commentary). Include keys:
 - notesForEditor (string)
 - seoHome: { title, description }
-- homepage: heroEyebrow, heroSupportingParagraph, listingsHeading, listingsBlurb, marketMetricsBlurb, contactHeading, contactBlurb; optionally marketMetricsHeading (omit if unsure)
+- homepage: heroEyebrow, heroSupportingParagraph, listingsHeading, listingsBlurb, marketMetricsBlurb, contactHeading, contactBlurb; optionally marketMetricsHeading, mlsSearchHeading, mlsSearchBlurb (omit if unsure)
 - faqItems: array of { id, question, answer }
 
 Rules:
@@ -77,7 +77,7 @@ Rules:
 4. "faqItems": 9–11 entries; ids lowercase kebab-case, stable (e.g. "what-is-this-site", "service-areas").
 5. No fabricated client statistics; testimonials are separate page content — do NOT invent star counts.
 6. Keep "Dr. Jan" not "Janet"; maintain professional fiduciary tone suitable for Berkshire Hathaway HomeServices Nevada Properties.
-7. In homepage.heroSupportingParagraph, listingsBlurb, and marketMetricsBlurb use literal tokens {{agent}} and {{brokerage}} instead of repeating the names (apply script substitutes from site-contact).`;
+7. In homepage.heroSupportingParagraph, listingsBlurb, marketMetricsBlurb, mlsSearchBlurb (when present) use literal tokens {{agent}} and {{brokerage}} instead of repeating the names (apply script substitutes from site-contact).`;
 }
 
 async function main() {

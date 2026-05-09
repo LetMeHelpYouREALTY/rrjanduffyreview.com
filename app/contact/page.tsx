@@ -3,6 +3,8 @@ import {
   ContactScheduleSection,
   OfficesBandSection,
 } from "@/components/sections/ContactOfficesSections";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { buildSubpageMetadata } from "@/lib/seo-pages";
 import { ROUTES } from "@/lib/site-routes";
 
@@ -17,6 +19,8 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-surface text-on-surface">
       <ContactScheduleSection />
+      <DeferredSimpleSearchBand hideListingsHubLink />
+      <DeferredOfficeListingsBand hideListingsHubLink />
       <OfficesBandSection />
     </div>
   );

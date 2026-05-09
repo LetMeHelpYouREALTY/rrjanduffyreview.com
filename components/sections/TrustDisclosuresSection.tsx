@@ -1,4 +1,6 @@
 import { ShieldCheck } from "lucide-react";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import {
   AGENT_DISPLAY_NAME,
   NEVADA_LICENSE,
@@ -47,6 +49,10 @@ export default function TrustDisclosuresSection({
             </p>
           </div>
         </div>
+      </div>
+      <DeferredSimpleSearchBand />
+      <DeferredOfficeListingsBand />
+      <div className="max-w-content mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <div className="border border-outline/15 bg-surface p-6 rounded-r-lg">
             <h3 className="font-display text-lg font-semibold text-on-surface mb-2">

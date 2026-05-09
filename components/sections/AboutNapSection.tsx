@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import {
   AGENT_DISPLAY_NAME,
   AGENT_TITLE,
@@ -93,6 +95,9 @@ export default function AboutNapSection({
             />
           </div>
         </div>
+
+        <DeferredSimpleSearchBand />
+        <DeferredOfficeListingsBand />
 
         <div
           className="mb-10 max-w-3xl mx-auto border border-secondary/25 bg-insight-bg px-6 py-5"

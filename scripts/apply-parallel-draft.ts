@@ -18,6 +18,10 @@ import { ParallelContentDraftSchema } from "@/lib/content-draft-schema";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_DRAFT_PATH = resolve(ROOT, "content", "parallel-draft.json");
 const FALLBACK_MARKETRICS_HEADING = "Summerlin & 55+ market indicators";
+const FALLBACK_MLS_SEARCH_HEADING =
+  "Live MLS search — Summerlin & the Valley";
+const FALLBACK_MLS_SEARCH_BLURB =
+  "Run the same RealScout MLS module as {{agent}}'s listings hub—refine price, beds, baths, and community lines before you scan office-sponsored inventory below.";
 
 loadEnv({ path: resolve(ROOT, ".env.local") });
 loadEnv({ path: resolve(ROOT, ".env") });
@@ -82,11 +86,17 @@ function emitMarketingModule(draftHomepage: {
   listingsBlurb: string;
   marketMetricsBlurb: string;
   marketMetricsHeading?: string | undefined;
+  mlsSearchHeading?: string | undefined;
+  mlsSearchBlurb?: string | undefined;
   contactHeading: string;
   contactBlurb: string;
 }): string {
   const mh =
     draftHomepage.marketMetricsHeading?.trim() || FALLBACK_MARKETRICS_HEADING;
+  const mlsH =
+    draftHomepage.mlsSearchHeading?.trim() || FALLBACK_MLS_SEARCH_HEADING;
+  const mlsB =
+    draftHomepage.mlsSearchBlurb?.trim() || FALLBACK_MLS_SEARCH_BLURB;
 
   const rawStrings = {
     heroEyebrow: draftHomepage.heroEyebrow,
@@ -95,6 +105,8 @@ function emitMarketingModule(draftHomepage: {
     listingsBlurb: draftHomepage.listingsBlurb,
     marketMetricsHeading: mh,
     marketMetricsBlurb: draftHomepage.marketMetricsBlurb,
+    mlsSearchHeading: mlsH,
+    mlsSearchBlurb: mlsB,
     contactHeading: draftHomepage.contactHeading,
     contactBlurb: draftHomepage.contactBlurb,
   };
@@ -137,6 +149,8 @@ function buildMarketingCopy(): HomeMarketingCopy {
     listingsBlurb: expandMarketingTokens(r.listingsBlurb),
     marketMetricsHeading: expandMarketingTokens(r.marketMetricsHeading),
     marketMetricsBlurb: expandMarketingTokens(r.marketMetricsBlurb),
+    mlsSearchHeading: expandMarketingTokens(r.mlsSearchHeading),
+    mlsSearchBlurb: expandMarketingTokens(r.mlsSearchBlurb),
     contactHeading: expandMarketingTokens(r.contactHeading),
     contactBlurb: expandMarketingTokens(r.contactBlurb),
   };

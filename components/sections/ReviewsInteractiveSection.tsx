@@ -3,6 +3,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Star } from "lucide-react";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { HOME_REVIEW_SEED } from "@/lib/home-review-seed";
 import { ROUTES } from "@/lib/site-routes";
 
@@ -62,6 +64,9 @@ export default function ReviewsInteractiveSection() {
             , and compare with Google reviews from the About page.
           </p>
         </div>
+
+        <DeferredSimpleSearchBand />
+        <DeferredOfficeListingsBand />
 
         <div
           id="neighborhoods"

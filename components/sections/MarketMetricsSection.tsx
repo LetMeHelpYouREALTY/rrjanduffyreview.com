@@ -4,6 +4,8 @@ import {
   Gauge,
   LineChart,
 } from "lucide-react";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { homeMarketingCopy } from "@/lib/home-marketing-copy";
 import { AGENT_DISPLAY_NAME } from "@/lib/site-contact";
 
@@ -88,6 +90,10 @@ export default function MarketMetricsSection({
             </svg>
           </div>
         </div>
+      </div>
+      <DeferredSimpleSearchBand />
+      <DeferredOfficeListingsBand />
+      <div className="max-w-content mx-auto px-4 md:px-8 pb-16 md:pb-section">
         <div
           className="border border-secondary/25 bg-insight-bg px-6 py-6 max-w-3xl mx-auto"
           role="note"

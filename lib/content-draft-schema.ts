@@ -25,6 +25,8 @@ export const ParallelContentDraftSchema = z.object({
     marketMetricsBlurb: z.string().max(450),
     /** Optional <h2> for metrics section — apply script falls back if omitted */
     marketMetricsHeading: z.string().max(110).optional(),
+    mlsSearchHeading: z.string().max(120).optional(),
+    mlsSearchBlurb: z.string().max(350).optional(),
     contactHeading: z.string().max(120),
     contactBlurb: z.string().max(450),
   }),

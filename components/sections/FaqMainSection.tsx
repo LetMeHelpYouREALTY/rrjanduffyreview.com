@@ -2,6 +2,8 @@ import {
   BUSINESS_NAME,
   PRIMARY_PHONE_DISPLAY,
 } from "@/lib/site-contact";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { getHomeFaqItems } from "@/lib/faq-home";
 
 export default function FaqMainSection({
@@ -34,6 +36,10 @@ export default function FaqMainSection({
           compliance, Google reviews etiquette, {BUSINESS_NAME} contact pathways, plus next steps
           tied to verified NAP ({PRIMARY_PHONE_DISPLAY}).
         </p>
+      </div>
+      <DeferredSimpleSearchBand />
+      <DeferredOfficeListingsBand />
+      <div className="max-w-content mx-auto px-4 md:px-8 mt-12">
         <dl className="max-w-3xl mx-auto space-y-8">
           {faqItems.map((item) => (
             <div
