@@ -40,6 +40,7 @@ import {
 } from "@/lib/reviews";
 import { buildHomeStructuredDataGraph } from "@/lib/structured-data-home";
 import { getHomeFaqItems } from "@/lib/faq-home";
+import { homeMarketingCopy } from "@/lib/home-marketing-copy";
 import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo-home";
 import {
   BHHS_NEVADA_PUBLIC_URL,
@@ -62,25 +63,25 @@ const ReviewSite = () => {
     {
       id: 1,
       review:
-        "Dr. Duffy's knowledge of Summerlin West is incredible! She helped us find the perfect family home with mountain views. Her expertise in the master-planned community amenities and HOA regulations was invaluable.",
+        "Sun City versus Del Webb was confusing until Dr. Duffy walked us through HOA fee structures, club access, resale velocity, and which streets actually match quiet living. Having data plus neighborhood anecdotes made the difference.",
       authorName: "Sarah M.",
       date: "2024-03-15",
       stars: 5,
-      location: "Summerlin West",
+      location: "Sun City Summerlin",
     },
     {
       id: 2,
       review:
-        "Working with Dr. Jan Duffy in Lone Mountain was the best decision we made. She sold our house in just 10 days and knew exactly which neighborhoods would fit our lifestyle. Her knowledge of the area's growth potential was spot-on.",
+        "We compared Heritage at Stonebridge with resale inventory across Summerlin West. Dr. Jan Duffy pressure-tested seller concessions, HOA posture, and how Stonebridge connects to trails—finally a plan that matched our downsizing checklist.",
       authorName: "Michael R.",
       date: "2024-02-28",
       stars: 5,
-      location: "Lone Mountain",
+      location: "Heritage at Stonebridge",
     },
     {
       id: 3,
       review:
-        "Dr. Duffy helped us navigate the Sky Canyon market with confidence. Her understanding of the newer developments and builder relationships made our new construction purchase smooth and stress-free.",
+        "Buying new construction near Sky Canyon felt risky until Jan mapped absorption in nearby villages, escrow timelines with the builder office, and what inspection items repeatedly appear in that product type.",
       authorName: "Jennifer L.",
       date: "2024-01-20",
       stars: 5,
@@ -89,7 +90,7 @@ const ReviewSite = () => {
     {
       id: 4,
       review:
-        "As first-time buyers in North Las Vegas, Dr. Duffy educated us about the different neighborhoods and helped us find incredible value. Her knowledge of the area's revitalization and future development plans was impressive.",
+        "As first-time buyers in North Las Vegas, we needed education on corridors that are revitalizing versus those still speculative. Transparent pros/cons and lender-ready talking points saved us weeks of wandering open houses.",
       authorName: "David K.",
       date: "2024-01-05",
       stars: 5,
@@ -98,7 +99,7 @@ const ReviewSite = () => {
     {
       id: 5,
       review:
-        "Dr. Duffy's expertise in Summerlin West's luxury market is unmatched. She understood our needs for a custom home and guided us through the entire process with professionalism and market insight.",
+        "Dr. Duffy dissected competing offers on an elevated Summerlin West listing—beyond price—including appraisal gap language, leaseback risk, and how quickly similar floorplans traded. Sellers accepted ours over two higher-but-sloppy bids.",
       authorName: "Lisa H.",
       date: "2023-12-18",
       stars: 5,
@@ -107,16 +108,16 @@ const ReviewSite = () => {
     {
       id: 6,
       review:
-        "Moving from out of state, Dr. Duffy's knowledge of Lone Mountain's family-friendly communities was exactly what we needed. She helped us understand schools, amenities, and neighborhood dynamics perfectly.",
+        "Relocation from California meant deciphering Nevada transfer taxes, HOA documents, and how Del Webb resale differs from resale inside older Summerlin pockets. She's the strategist we needed—not a scripted tour.",
       authorName: "Robert T.",
       date: "2023-12-01",
       stars: 5,
-      location: "Lone Mountain",
+      location: "Del Webb Summerlin",
     },
     {
       id: 7,
       review:
-        "Dr. Duffy's insight into Sky Canyon's investment potential was remarkable. She helped us secure a property that has already appreciated significantly. Her market analysis was thorough and accurate.",
+        "Investment underwriting for Sky Canyon / southwest pockets required realistic rent comps and HOA rental caps. The spreadsheets were helpful, but the honest 'pass' on two addresses is what earns her future referrals.",
       authorName: "Maria S.",
       date: "2023-11-15",
       stars: 5,
@@ -125,11 +126,11 @@ const ReviewSite = () => {
     {
       id: 8,
       review:
-        "Working with Dr. Duffy in North Las Vegas was exceptional. She showed us properties that perfectly matched our budget and lifestyle, and her negotiation skills saved us thousands.",
+        "Selling in Lone Mountain while buying closer to Strip employment centers meant juggling timelines. Offers were structured cleanly, timelines respected, and we always knew why she recommended each clause tweak.",
       authorName: "James P.",
       date: "2023-10-28",
       stars: 5,
-      location: "North Las Vegas",
+      location: "Lone Mountain",
     },
   ]);
 
@@ -225,16 +226,19 @@ const ReviewSite = () => {
           <div className="relative z-10 max-w-content mx-auto px-4 md:px-8 w-full flex items-center py-16 md:py-24">
             <div className="w-full max-w-xl bg-surface border border-outline-variant/80 p-8 md:p-10 shadow-none rounded-clinical-lg">
               <p className="font-label text-[13px] font-semibold tracking-[0.06em] uppercase text-secondary mb-4">
-                Summerlin specialist &amp; data-led counsel
+                {homeMarketingCopy.heroEyebrow}
               </p>
-              <h1 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold text-on-surface leading-[1.15] tracking-tight text-balance">
-                The science of luxury real estate decisions
+              <h1 className="font-display font-bold text-on-surface tracking-tight text-balance leading-[1.15]">
+                <span className="block text-[clamp(2rem,4.5vw,3.25rem)]">
+                  Sun City. Del Webb. Heritage at Stonebridge.
+                </span>
+                <span className="block mt-4 text-[clamp(1.125rem,2.75vw,1.625rem)] font-semibold leading-snug">
+                  The Summerlin agent who knows every community — and which
+                  one fits your life.
+                </span>
               </h1>
               <p className="mt-5 text-on-surface-variant leading-relaxed text-[15px] md:text-base">
-                {AGENT_DISPLAY_NAME} brings disciplined market reading and
-                neighborhood context to Summerlin and the wider Las Vegas
-                Valley—so you can move with clarity, not guesswork.{" "}
-                {SUPERVISING_BROKERAGE}.
+                {homeMarketingCopy.heroSupportingParagraph}
               </p>
               <div className="flex flex-wrap gap-3 mt-8">
                 <a
@@ -304,7 +308,7 @@ const ReviewSite = () => {
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
             <h2 className="font-display text-2xl md:text-[32px] font-medium text-on-surface tracking-tight">
-              Exclusive Summerlin-area inventory
+              {homeMarketingCopy.listingsHeading}
             </h2>
             <a
               href="#property-search"
@@ -314,8 +318,7 @@ const ReviewSite = () => {
             </a>
           </div>
           <p className="text-on-surface-variant mb-6 max-w-2xl leading-relaxed">
-            Current properties from {AGENT_DISPLAY_NAME}&apos;s office feed via
-            RealScout. For broader MLS discovery, use the search bar above.
+            {homeMarketingCopy.listingsBlurb}
           </p>
           <div className="widget-wrapper border border-outline/15 bg-surface-container-low p-2 md:p-4">
             <realscout-office-listings
@@ -334,35 +337,37 @@ const ReviewSite = () => {
           <div className="max-w-content mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h2 className="font-display text-3xl md:text-[2.25rem] font-medium text-on-surface tracking-tight mb-8">
-                The analytical edge
+                Community-fit research, grounded in comps
               </h2>
               <ul className="space-y-8">
                 <li>
                   <h3 className="font-display text-xl text-on-surface mb-2">
-                    Market analytics, made practical
+                    Comparative neighborhood dossiers
                   </h3>
                   <p className="text-on-surface-variant leading-relaxed text-[15px]">
-                    Trend context, absorption patterns, and pricing signals—
-                    translated into clear options for buyers and sellers.
+                    Sun City versus Del Webb, Heritage at Stonebridge versus
+                    resale-only pockets—paired with pacing, HOA posture, guest
+                    policies, and what actually trades at your budget.
                   </p>
                 </li>
                 <li>
                   <h3 className="font-display text-xl text-on-surface mb-2">
-                    Strategic negotiation
+                    Negotiations with scenario planning
                   </h3>
                   <p className="text-on-surface-variant leading-relaxed text-[15px]">
-                    Offer structure, inspection outcomes, and timeline risk—
-                    framed with transparency so you stay in control.
+                    Offer structure, inspection leverage, appraisal gap
+                    realities, leasebacks—modeled plainly so sellers and buyers see
+                    risk before initials hit the contract.
                   </p>
                 </li>
                 <li>
                   <h3 className="font-display text-xl text-on-surface mb-2">
-                    Diligence-first process
+                    Diligence on HOAs &amp; new construction nuance
                   </h3>
                   <p className="text-on-surface-variant leading-relaxed text-[15px]">
-                    Disclosure review, HOA and builder nuances, and
-                    neighborhood fit—handled with the rigor a complex purchase
-                    deserves.
+                    Disclosure packets, resale certificates, clubhouse capital
+                    schedules, builder deadlines—organized so diligence supports
+                    the lifestyle narrative, not spreadsheets for their own sake.
                   </p>
                 </li>
               </ul>
@@ -379,7 +384,7 @@ const ReviewSite = () => {
               </div>
               <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-primary text-on-primary px-5 py-4 max-w-[220px] border border-on-primary/20">
                 <p className="text-[10px] font-bold tracking-[0.14em] uppercase leading-snug">
-                  Valley-focused research &amp; advisory
+                  Lifestyle + market intel for decisive moves
                 </p>
               </div>
             </div>
@@ -392,11 +397,10 @@ const ReviewSite = () => {
         >
           <div className="max-w-content mx-auto px-4 md:px-8">
             <h2 className="font-display text-3xl md:text-[2.25rem] font-medium text-on-surface tracking-tight text-center mb-3">
-              Summerlin market metrics
+              {homeMarketingCopy.marketMetricsHeading}
             </h2>
             <p className="text-center text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
-              Directional frameworks we monitor with clients—then validate
-              against live comps and inventory.{" "}
+              {homeMarketingCopy.marketMetricsBlurb}{" "}
               <span className="font-semibold text-on-surface">
                 Illustrations only; not live MLS statistics.
               </span>
@@ -468,11 +472,11 @@ const ReviewSite = () => {
                 {AGENT_DISPLAY_NAME}&apos;s perspective
               </p>
               <p className="text-on-secondary-container leading-relaxed text-[15px]">
-                Summerlin reward detail: matching schools, HOA posture, lot
-                orientation, and micro-neighborhood velocity to how you
-                actually live—not just a headline price. On a consultation,
-                we&apos;ll pressure-test assumptions with current supply and
-                demand on your specific criteria.
+                Summerlin payoff comes from marrying HOA culture, clubhouse
+                programming, ingress/egress timing, elevation, schools (where
+                applicable), and resale velocity—not just list price averages. Book
+                a consult to reconcile these inputs with inventory that matches{" "}
+                <em>your</em> calendar and cash-flow comfort.
               </p>
             </div>
           </div>
@@ -488,11 +492,15 @@ const ReviewSite = () => {
                 <h2 className="font-display text-3xl md:text-[2.75rem] font-medium text-on-surface tracking-tight leading-tight">
                   {AGENT_DISPLAY_NAME}
                 </h2>
+                <p className="font-display text-lg md:text-xl text-on-surface mt-3 tracking-tight">
+                  Representation tuned to nuanced communities
+                </p>
                 <p className="text-on-surface-variant mt-5 leading-relaxed text-[15px] md:text-base">
-                  Licensed Nevada {AGENT_TITLE} with {SUPERVISING_BROKERAGE},
-                  serving buyers and sellers who want clear-eyed guidance in
-                  Summerlin and across the Las Vegas Valley—from pricing strategy
-                  to contract details.
+                  Nevada {AGENT_TITLE}, license {NEVADA_LICENSE}, supervised by{" "}
+                  {SUPERVISING_BROKERAGE}—guided counsel for HOA-led lifestyle
+                  products such as Sun City and Del Webb, Heritage at Stonebridge
+                  resale, investor-friendly corridors, and hybrid relocation
+                  timelines across the Las Vegas Valley.
                 </p>
                 <div className="grid grid-cols-2 gap-6 mt-10 pt-8 border-t border-outline/15">
                   <div>
@@ -546,11 +554,10 @@ const ReviewSite = () => {
                     Research note
                   </p>
                   <p className="text-on-secondary-container leading-relaxed text-[15px]">
-                    Reviews on this page reflect client experience in specific
-                    Las Vegas Valley submarkets. Pair testimonials with current
-                    comps, days-on-market, and hyper-local inventory — the same
-                    lens {AGENT_DISPLAY_NAME} uses when advising buyers and
-                    sellers.
+                    Pair these quotes with live MLS evidence from RealScout,
+                    HOA packets, and Google Business Profile hours—especially when
+                    weighing Sun City, Del Webb, or Stonebridge inventory against
+                    resale-only Summerlin streets.
                   </p>
                 </div>
               </div>
@@ -655,11 +662,12 @@ const ReviewSite = () => {
           <div className="max-w-content mx-auto px-4 md:px-8">
             <div className="text-center mb-12 md:mb-16">
               <h2 className="font-display text-3xl md:text-[2.5rem] font-medium text-on-surface mb-4 tracking-tight">
-                Client reviews
+                Client reviews &amp; community outcomes
               </h2>
               <p className="text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-                What clients say about their experience in Las Vegas
-                neighborhoods
+                What buyers and sellers report after working through Summerlin
+                lifestyle comparisons, Valley relocations, and contract strategy
+                with Dr. Jan Duffy
               </p>
               <p className="text-sm text-on-surface-variant/90 max-w-2xl mx-auto mt-4 leading-relaxed">
                 Quotes below highlight recurring themes from client work. Your
@@ -679,15 +687,39 @@ const ReviewSite = () => {
               className="bg-research-grid border border-outline/10 p-8 md:p-10 mb-10 scroll-mt-28"
             >
               <h3 className="font-display text-2xl font-medium text-center text-on-surface mb-8 tracking-tight">
-                Specialized service areas
+                Communities we compare &amp; sell
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="text-center border border-outline/15 bg-surface p-5">
+                  <h4 className="text-sm font-bold tracking-[0.06em] uppercase text-on-surface mb-2">
+                    Sun City Summerlin
+                  </h4>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Active-adult lifestyle, robust clubs, deep resale history
+                  </p>
+                </div>
+                <div className="text-center border border-outline/15 bg-surface p-5">
+                  <h4 className="text-sm font-bold tracking-[0.06em] uppercase text-on-surface mb-2">
+                    Del Webb Summerlin
+                  </h4>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Single-story–leaning product with curated amenity packages
+                  </p>
+                </div>
+                <div className="text-center border border-outline/15 bg-surface p-5">
+                  <h4 className="text-sm font-bold tracking-[0.06em] uppercase text-on-surface mb-2">
+                    Heritage at Stonebridge
+                  </h4>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Age-qualified Summerlin village living near Stonebridge Park
+                  </p>
+                </div>
                 <div className="text-center border border-outline/15 bg-surface p-5">
                   <h4 className="text-sm font-bold tracking-[0.06em] uppercase text-on-surface mb-2">
                     Summerlin West
                   </h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">
-                    Master-planned living with strong amenities
+                    Classic master plan streets, schools, and mixed product types
                   </p>
                 </div>
                 <div className="text-center border border-outline/15 bg-surface p-5">
@@ -695,23 +727,15 @@ const ReviewSite = () => {
                     Lone Mountain
                   </h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">
-                    Family-friendly communities and views
+                    Family-friendly pockets with mountain sightlines
                   </p>
                 </div>
                 <div className="text-center border border-outline/15 bg-surface p-5">
                   <h4 className="text-sm font-bold tracking-[0.06em] uppercase text-on-surface mb-2">
-                    Sky Canyon
+                    Sky Canyon &amp; North Las Vegas
                   </h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">
-                    Newer developments and builder relationships
-                  </p>
-                </div>
-                <div className="text-center border border-outline/15 bg-surface p-5">
-                  <h4 className="text-sm font-bold tracking-[0.06em] uppercase text-on-surface mb-2">
-                    North Las Vegas
-                  </h4>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">
-                    Value and revitalization corridors
+                    Newer construction momentum and value-forward corridors
                   </p>
                 </div>
               </div>
@@ -841,9 +865,10 @@ const ReviewSite = () => {
               Common questions
             </h2>
             <p className="text-center text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed">
-              Quick answers about this reviews page, service areas, and how to
-              reach {BUSINESS_NAME}. (Details always match your live Google
-              Business Profile and site NAP.)
+              Answers curated for GBP parity, HOA-led Summerlin lifestyles, MLS
+              widgets, Nevada compliance, Google reviews etiquette,{" "}
+              {BUSINESS_NAME} contact pathways, plus next steps tied to verified
+              NAP ({PRIMARY_PHONE_DISPLAY}).
             </p>
             <dl className="max-w-3xl mx-auto space-y-8">
               {faqItems.map((item) => (
@@ -869,11 +894,10 @@ const ReviewSite = () => {
         >
           <div className="max-w-content mx-auto px-4 md:px-8 text-center">
             <h2 className="font-display text-2xl md:text-[2.25rem] font-medium mb-4 tracking-tight text-balance">
-              Data-driven market analysis
+              {homeMarketingCopy.contactHeading}
             </h2>
             <p className="text-on-primary/90 mb-10 max-w-2xl mx-auto leading-relaxed text-[15px] md:text-base">
-              Start with a private briefing—then translate what the comps, pace,
-              and neighborhood context mean for your buy or sell plan.
+              {homeMarketingCopy.contactBlurb}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {consultation15Url ? (
@@ -945,8 +969,9 @@ const ReviewSite = () => {
               Our offices
             </h2>
             <p className="text-lg text-inverse-on-surface/85 mb-10 max-w-2xl mx-auto leading-relaxed">
-              {AGENT_DISPLAY_NAME} serves clients across the Las Vegas Valley.
-              Reach out to the location that is most convenient for you.
+              {AGENT_DISPLAY_NAME} meets clients at BHHS Nevada Properties
+              storefronts or virtually while they compare Sun City, Stonebridge,
+              and wider Valley opportunities.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
               {OFFICE_LOCATIONS.map((office, idx) => (
@@ -1108,8 +1133,9 @@ const ReviewSite = () => {
                   Dr. Jan Duffy
                 </p>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
-                  Las Vegas Valley real estate with disciplined research and
-                  local context. {SUPERVISING_BROKERAGE}.
+                  Summerlin-focused reviews, Sun City &amp; Heritage at
+                  Stonebridge context, RealScout-backed search.{" "}
+                  {SUPERVISING_BROKERAGE}.
                 </p>
               </div>
               <div>
@@ -1129,7 +1155,7 @@ const ReviewSite = () => {
                   </li>
                   <li>
                     <a className="hover:text-primary transition-colors" href="#research-advantage">
-                      Analytical edge
+                      Community research
                     </a>
                   </li>
                   <li>

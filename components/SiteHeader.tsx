@@ -30,7 +30,7 @@ export function SiteHeader({ consultationHref }: SiteHeaderProps) {
             Exclusive listings
           </a>
           <a className={navClassName} href="#research-advantage">
-            The analytical edge
+            Community research
           </a>
           <a className={navClassName} href="#faq">
             FAQ

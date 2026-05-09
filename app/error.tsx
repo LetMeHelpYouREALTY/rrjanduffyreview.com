@@ -19,7 +19,8 @@ export default function Error({
         Something went wrong
       </h1>
       <p className="text-on-surface-variant max-w-md mx-auto leading-relaxed mb-2">
-        An unexpected error occurred. You can try again, or return home.
+        An unexpected server error occurred—your data is unchanged. Try again,
+        or jump home to resume Summerlin search, reviews, and contact options.
       </p>
       {error.digest ? (
         <p className="mb-8 font-mono text-xs text-outline" suppressHydrationWarning>

@@ -75,8 +75,19 @@ export function buildHomeStructuredDataGraph(params: {
     knowsAbout: [
       "Nevada residential real estate brokerage",
       "Las Vegas Valley buyer and seller representation",
+      "Summerlin master-planned neighborhoods and HOA governance",
+      "Active adult neighborhoods including Sun City Summerlin & Del Webb",
+      "Heritage at Stonebridge age-qualified offerings in Village of Stonebridge",
     ],
     areaServed: [
+      {
+        "@type": "Place",
+        name: "Sun City Summerlin & Del Webb Summerlin villages, Las Vegas, NV",
+      },
+      {
+        "@type": "Place",
+        name: "Heritage at Stonebridge — Village of Stonebridge, Summerlin, NV",
+      },
       { "@type": "Place", name: "Summerlin West, Las Vegas, NV" },
       { "@type": "Place", name: "Lone Mountain, Las Vegas, NV" },
       { "@type": "Place", name: "Sky Canyon, Las Vegas, NV" },

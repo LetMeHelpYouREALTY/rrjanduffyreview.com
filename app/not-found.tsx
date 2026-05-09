@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Page not found",
   description:
-    "This page is missing. Return to Dr. Jan Duffy’s Las Vegas client reviews, MLS search, and contact details.",
+    "That URL isn’t live. Jump back to Dr. Jan Duffy’s Summerlin-focused client reviews—including Sun City, Del Webb villages, Heritage at Stonebridge—plus MLS search, office NAP, and Calendly.",
 };
 
 export default function NotFound() {
@@ -21,8 +21,9 @@ export default function NotFound() {
         Page not found
       </h1>
       <p className="text-on-surface-variant max-w-md mx-auto leading-relaxed mb-8">
-        The requested URL does not exist. Use the links below to get back to
-        listings, search, or contact information.
+        The requested URL isn&apos;t active. Continue from home for Summerlin
+        community comparisons, MLS search backed by RealScout, verified office
+        NAP, or contact options.
       </p>
       <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
         <Link

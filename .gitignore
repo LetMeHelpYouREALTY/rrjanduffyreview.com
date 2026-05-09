@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated editorial drafts (Parallel Search pipeline)
+/content/parallel-draft.json

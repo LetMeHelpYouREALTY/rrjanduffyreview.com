@@ -1,9 +1,16 @@
-import { gateway, streamText } from "ai";
+import { streamText } from "ai";
+import {
+  buildParallelSearchTools,
+  getAiGatewayModel,
+} from "@/lib/parallel-search-config";
+
+/**
+ * Server-side stream that exposes Vercel AI Gateway `parallelSearch` for
+ * citation-backed answers. POST `{ "prompt": "…" }` from tools, or run
+ * `npm run content:apply-draft` locally to merge saved `content/parallel-draft.json`.
+ */
 
 export const maxDuration = 60;
-
-/** Default gateway model slug — override with AI_GATEWAY_MODEL in Vercel. */
-const DEFAULT_GATEWAY_MODEL = "openai/gpt-4o-mini";
 
 export async function POST(request: Request) {
   if (!process.env.AI_GATEWAY_API_KEY?.trim()) {
@@ -48,72 +55,13 @@ export async function POST(request: Request) {
     );
   }
 
-  const model = process.env.AI_GATEWAY_MODEL?.trim() || DEFAULT_GATEWAY_MODEL;
-
-  const maxResults = clampInt(
-    parseOptionalInt(process.env.PARALLEL_SEARCH_MAX_RESULTS),
-    1,
-    20,
-    8,
-  );
-
-  const mode =
-    process.env.PARALLEL_SEARCH_MODE?.trim().toLowerCase() === "agentic"
-      ? "agentic"
-      : "one-shot";
-
-  const excludeDomains = parseCommaSeparatedList(
-    process.env.PARALLEL_SEARCH_EXCLUDE_DOMAINS,
-  );
-  const includeDomains = parseCommaSeparatedList(
-    process.env.PARALLEL_SEARCH_INCLUDE_DOMAINS,
-  );
-
-  const parallelSearchConfig: Parameters<
-    typeof gateway.tools.parallelSearch
-  >[0] = {
-    mode,
-    maxResults,
-    ...(excludeDomains?.length
-      ? { sourcePolicy: { excludeDomains } }
-      : includeDomains?.length
-        ? { sourcePolicy: { includeDomains } }
-        : {}),
-  };
+  const model = getAiGatewayModel();
 
   const result = streamText({
     model,
     prompt,
-    tools: {
-      parallel_search: gateway.tools.parallelSearch(parallelSearchConfig),
-    },
+    tools: buildParallelSearchTools(),
   });
 
   return result.toTextStreamResponse();
-}
-
-function parseOptionalInt(raw: string | undefined): number | undefined {
-  if (raw == null || raw.trim() === "") return undefined;
-  const n = Number.parseInt(raw, 10);
-  return Number.isFinite(n) ? n : undefined;
-}
-
-function clampInt(
-  value: number | undefined,
-  min: number,
-  max: number,
-  fallback: number,
-): number {
-  if (value == null) return fallback;
-  return Math.min(max, Math.max(min, value));
-}
-
-/** Comma-separated domains for Parallel sourcePolicy (exclude wins if both set). */
-function parseCommaSeparatedList(raw: string | undefined): string[] | undefined {
-  if (raw == null || raw.trim() === "") return undefined;
-  const parts = raw
-    .split(",")
-    .map((s) => s.trim().toLowerCase())
-    .filter(Boolean);
-  return parts.length > 0 ? parts : undefined;
 }

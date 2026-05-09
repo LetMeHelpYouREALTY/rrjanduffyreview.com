@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Dr. Jan Duffy — Client reviews",
+    siteName: "Dr. Jan Duffy — Summerlin community reviews",
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
     ...(ogImage
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
               url: ogImage,
               width: 1200,
               height: 630,
-              alt: "Las Vegas area real estate — Dr. Jan Duffy, REALTOR",
+              alt: "Luxury Las Vegas area home — Summerlin & Dr. Jan Duffy REALTOR context",
             },
           ],
         }

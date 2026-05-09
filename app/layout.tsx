@@ -45,8 +45,9 @@ const consultationHref = buildCalendlyUrl(
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: "%s | Dr. Jan Duffy, REALTOR",
-    default: "Dr. Jan Duffy, REALTOR — Las Vegas reviews",
+    template: "%s | Dr. Jan Duffy, REALTOR®",
+    default:
+      "Dr. Jan Duffy, REALTOR® — Summerlin communities, Sun City & Stonebridge guidance",
   },
   robots: { index: true, follow: true },
 };
