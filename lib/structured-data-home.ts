@@ -10,7 +10,6 @@ import {
   SUPERVISING_BROKERAGE,
   getPublicSiteUrl,
 } from "@/lib/site-contact";
-import { getHomeFaqItems } from "@/lib/faq-home";
 import { BHHS_NEVADA_PUBLIC_URL } from "@/lib/public-resources";
 
 type ReviewSeed = {
@@ -19,6 +18,7 @@ type ReviewSeed = {
   authorName: string;
   date: string;
   stars: number;
+  location?: string;
 };
 
 const BROKERAGE_ID_SUFFIX = "#brokerage";
@@ -113,20 +113,6 @@ export function buildHomeStructuredDataGraph(params: {
   const sameAs = sameAsList();
   if (sameAs) agent.sameAs = sameAs;
 
-  const faqItems = getHomeFaqItems();
-  const faqPage = {
-    "@type": "FAQPage",
-    "@id": `${base}/#faq`,
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
   const webPage: Record<string, unknown> = {
     "@type": "WebPage",
     "@id": webpageId,
@@ -174,7 +160,6 @@ export function buildHomeStructuredDataGraph(params: {
         },
       ],
     },
-    faqPage,
     ...params.reviews.map((r) => ({
       "@type": "Review",
       author: { "@type": "Person", name: r.authorName },

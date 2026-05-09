@@ -8,6 +8,7 @@ import Script from "next/script";
 import "./globals.css";
 import { CalendlySiteWidgets } from "@/components/CalendlySiteWidgets";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
 import { buildCalendlyUrl } from "@/lib/calendly";
 import { getPublicSiteUrl } from "@/lib/site-contact";
 
@@ -76,6 +77,7 @@ export default function RootLayout({
         />
         <SiteHeader consultationHref={consultationHref} />
         <main id="main-content">{children}</main>
+        <SiteFooter />
         <CalendlySiteWidgets />
       </body>
     </html>

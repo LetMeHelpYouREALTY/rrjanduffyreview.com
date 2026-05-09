@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import ReviewSite from "@/components/ReviewSite";
+import { HomeLanding } from "@/components/pages/HomeLanding";
 import { getPublicSiteUrl } from "@/lib/site-contact";
 import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo-home";
+import { buildHomeStructuredDataGraph } from "@/lib/structured-data-home";
+import { HOME_REVIEW_SEED } from "@/lib/home-review-seed";
 
 const siteUrl = getPublicSiteUrl();
 
@@ -15,7 +17,9 @@ function absoluteOgImage(): string | undefined {
 const ogImage = absoluteOgImage();
 
 export const metadata: Metadata = {
-  title: HOME_TITLE,
+  title: {
+    absolute: HOME_TITLE,
+  },
   description: HOME_DESCRIPTION,
   alternates: {
     canonical: siteUrl,
@@ -67,5 +71,21 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <ReviewSite />;
+  const structuredDataGraph = buildHomeStructuredDataGraph({
+    reviews: [...HOME_REVIEW_SEED],
+    pageTitle: HOME_TITLE,
+    pageDescription: HOME_DESCRIPTION,
+  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredDataGraph),
+        }}
+      />
+      <HomeLanding />
+    </>
+  );
 }

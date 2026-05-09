@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ROUTES } from "@/lib/site-routes";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -33,13 +34,13 @@ export default function NotFound() {
           Home
         </Link>
         <Link
-          href="/#property-search"
+          href={ROUTES.listings}
           className="inline-flex min-h-12 items-center justify-center rounded-md border-2 border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-surface-container transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           MLS search
         </Link>
         <Link
-          href="/#contact"
+          href={ROUTES.contact}
           className="inline-flex min-h-12 items-center justify-center rounded-md border border-outline/30 px-6 py-3 text-sm font-semibold text-on-surface hover:bg-surface-container transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           Contact
