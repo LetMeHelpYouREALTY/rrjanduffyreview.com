@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 
 export default function Error({
   error,
@@ -44,6 +46,8 @@ export default function Error({
           Home
         </Link>
       </div>
+      <DeferredSimpleSearchBand hideListingsHubLink />
+      <DeferredOfficeListingsBand hideListingsHubLink />
     </div>
   );
 }

@@ -20,7 +20,7 @@ type DeferredSimpleSearchBandProps = {
   idleTimeoutMs?: number;
   sectionId?: string;
   className?: string;
-  /** Observe visibility before scheduling (off for embedded listings hero). */
+  /** When true (opt-in): load only once the band is near the viewport — saves bandwidth; may hide widgets until scroll. */
   deferUntilNearViewport?: boolean;
 };
 
@@ -30,7 +30,7 @@ export function DeferredSimpleSearchBand({
   idleTimeoutMs = DEFAULT_SEARCH_IDLE_TIMEOUT_MS,
   sectionId = "mls-search-embed",
   className = "",
-  deferUntilNearViewport = true,
+  deferUntilNearViewport = false,
 }: DeferredSimpleSearchBandProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const respectViewport = deferUntilNearViewport && !embedded;

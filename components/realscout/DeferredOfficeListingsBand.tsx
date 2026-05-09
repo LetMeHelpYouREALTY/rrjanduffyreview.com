@@ -24,7 +24,7 @@ type DeferredOfficeListingsBandProps = {
   afterIdleDelayMs?: number;
   sectionId?: string;
   className?: string;
-  /** Observe visibility before scheduling (recommended; listing hub keeps true for embedded office). */
+  /** Opt-in: defer mounting until band nears viewport (default off for predictable visibility). */
   deferUntilNearViewport?: boolean;
 };
 
@@ -35,7 +35,7 @@ export function DeferredOfficeListingsBand({
   afterIdleDelayMs = DEFAULT_OFFICE_AFTER_IDLE_DELAY_MS,
   sectionId = "office-listings-embed",
   className = "",
-  deferUntilNearViewport = true,
+  deferUntilNearViewport = false,
 }: DeferredOfficeListingsBandProps) {
   const rootRef = useRef<HTMLDivElement>(null);
 

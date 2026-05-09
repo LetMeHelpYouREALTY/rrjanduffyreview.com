@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
+import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { ROUTES } from "@/lib/site-routes";
 
 export const metadata: Metadata = {
@@ -46,6 +48,8 @@ export default function NotFound() {
           Contact
         </Link>
       </div>
+      <DeferredSimpleSearchBand hideListingsHubLink />
+      <DeferredOfficeListingsBand hideListingsHubLink />
     </div>
   );
 }

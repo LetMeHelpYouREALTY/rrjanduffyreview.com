@@ -10,7 +10,7 @@ export type UseDeferRealScoutMountOptions = {
   afterIdleDelayMs?: number;
   /** Root element to observe; required when `respectViewport` is true. */
   observeRef: RefObject<HTMLElement | null>;
-  /** Wait for near-viewport visibility before scheduling idle (saves work when below the fold). */
+  /** When true: wait until the observed element intersects near the viewport before scheduling idle. */
   respectViewport?: boolean;
   /** IntersectionObserver rootMargin (preload slightly before entering view). */
   rootMargin?: string;
@@ -21,14 +21,14 @@ export type UseDeferRealScoutMountOptions = {
 };
 
 /**
- * Defers mounting heavy RealScout web components until (1) the band is near the viewport
- * and (2) an idle slice (with optional extra delay for office vs search ordering).
+ * Defers mounting heavy RealScout web components until an idle slice (with optional stagger).
+ * Optionally wait for viewport intersection first when `respectViewport` is true.
  */
 export function useDeferRealScoutMount({
   idleTimeoutMs,
   afterIdleDelayMs = 0,
   observeRef,
-  respectViewport = true,
+  respectViewport = false,
   rootMargin = "140px 0px",
   maxWaitBeforeMountMs = 14_000,
   fallbackDelayMs,
@@ -104,6 +104,12 @@ export function useDeferRealScoutMount({
           { root: null, rootMargin, threshold: 0 },
         );
         observer.observe(el);
+        const r = el.getBoundingClientRect();
+        const vh = window.visualViewport?.height ?? window.innerHeight;
+        const expand = 140;
+        if (r.bottom >= -expand && r.top <= vh + expand) {
+          unlock();
+        }
       });
     }
 
