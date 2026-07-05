@@ -48,11 +48,11 @@ export function HomeLanding() {
             </p>
             <h1 className="font-display font-bold text-on-surface tracking-tight text-balance leading-[1.15]">
               <span className="block text-[clamp(2rem,4.5vw,3.25rem)]">
-                Sun City. Del Webb. Heritage at Stonebridge.
+                89134 Sun City. 89138 Stonebridge. Heritage at Stonebridge 55+.
               </span>
               <span className="block mt-4 text-[clamp(1.125rem,2.75vw,1.625rem)] font-semibold leading-snug">
-                The Summerlin agent who knows every community — and which one
-                fits your life.
+                Village-by-village Summerlin West guidance—from Kestrel new-build
+                to Del Webb resale.
               </span>
             </h1>
             <p className="mt-5 text-on-surface-variant leading-relaxed text-[15px] md:text-base">
@@ -140,16 +140,16 @@ export function HomeLanding() {
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <NavCard href={ROUTES.listings} title="MLS search & listings">
-              Live RealScout search plus office-listed inventory spanning Sun
-              City, Del Webb, Stonebridge-era product, and the wider valley.
+              RealScout search by zip—89134 Sun City, 89138 Summerlin West,
+              Heritage at Stonebridge, Kestrel, and Redpoint inventory.
             </NavCard>
             <NavCard href={ROUTES.insights} title="Community research">
-              Side-by-side neighborhood diligence: HOA posture, comps, resale
-              velocity, negotiation scenarios.
+              Sun City vs Heritage at Stonebridge vs Kestrel new-build—HOA
+              posture, clubhouse access, guard-gate tradeoffs, comp velocity.
             </NavCard>
             <NavCard href={ROUTES.market} title="Market framing">
-              Directional pacing charts and broker commentary (illustrations,
-              validated on consults against live comps).
+              Directional medians—valley ~$450K, Summerlin South ~$847K, Sun
+              City ~$480K—validated on consults against live MLS comps.
             </NavCard>
             <NavCard href={ROUTES.reviews} title="Client reviews">
               Ratings summary, corridor tags, and client outcomes across Summerlin and

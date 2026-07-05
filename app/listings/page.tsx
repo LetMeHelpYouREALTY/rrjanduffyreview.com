@@ -4,9 +4,9 @@ import { buildSubpageMetadata } from "@/lib/seo-pages";
 import { ROUTES } from "@/lib/site-routes";
 
 export const metadata: Metadata = buildSubpageMetadata({
-  title: "MLS search & Summerlin listings",
+  title: "MLS search — 89138 Summerlin West & 89134 Sun City",
   description:
-    "RealScout MLS search and exclusive office listings for Sun City, Del Webb, Heritage at Stonebridge, Summerlin West, and the Las Vegas Valley—with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "RealScout MLS search and office listings for Sun City Summerlin, Heritage at Stonebridge, Kestrel, Redpoint, Stonebridge Village, and the Las Vegas Valley—with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   path: ROUTES.listings,
 });
 

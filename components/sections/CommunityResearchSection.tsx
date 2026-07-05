@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
 import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
+import {
+  HERITAGE_STONEBRIDGE_FACTS,
+  SUN_CITY_FACTS,
+  formatVillageList,
+  SUMMERLIN_WEST_VILLAGES,
+} from "@/lib/hyperlocal-summerlin";
 
 const RESEARCH_IMAGE =
   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80";
@@ -12,7 +18,9 @@ export default function CommunityResearchSection({
 }) {
   const titleCls =
     "font-display text-3xl md:text-[2.25rem] font-medium text-on-surface tracking-tight mb-8";
-  const titleText = "Community-fit research, grounded in comps";
+  const titleText = "Community-fit research across Summerlin West zips";
+
+  const westSample = formatVillageList(SUMMERLIN_WEST_VILLAGES, 4);
 
   return (
     <section className="py-16 md:py-section bg-surface-low border-y border-outline/10 scroll-mt-32">
@@ -26,20 +34,26 @@ export default function CommunityResearchSection({
           <ul className="space-y-8">
             <li>
               <h3 className="font-display text-xl text-on-surface mb-2">
-                Comparative neighborhood dossiers
+                Sun City 89134 vs Heritage at Stonebridge 89138
               </h3>
               <p className="text-on-surface-variant leading-relaxed text-[15px]">
-                Sun City versus Del Webb, Heritage at Stonebridge versus resale-only pockets—paired
-                with pacing, HOA posture, guest policies, and what actually trades at your budget.
+                Del Webb Sun City Summerlin—{SUN_CITY_FACTS.totalHomes.toLocaleString()}{" "}
+                resale homes, {SUN_CITY_FACTS.recreationCenters} recreation centers,{" "}
+                {SUN_CITY_FACTS.golfHoles} holes of golf, not guard-gated—versus
+                Lennar Heritage at Stonebridge—{HERITAGE_STONEBRIDGE_FACTS.totalHomes}{" "}
+                staff guard-gated homes built {HERITAGE_STONEBRIDGE_FACTS.yearsBuilt}.
+                Paired with HOA fees, guest policies, and what actually trades at your
+                budget.
               </p>
             </li>
             <li>
               <h3 className="font-display text-xl text-on-surface mb-2">
-                Negotiations with scenario planning
+                Summerlin West village dossiers ({westSample})
               </h3>
               <p className="text-on-surface-variant leading-relaxed text-[15px]">
-                Offer structure, inspection leverage, appraisal gap realities,
-                leasebacks—modeled plainly so sellers and buyers see risk before initials hit the
+                Stonebridge, Kestrel, Redpoint, and Grand Park each carry different
+                builder mixes, trail links toward Red Rock Canyon, and HOA capital
+                schedules—modeled plainly so you see risk before initials hit the
                 contract.
               </p>
             </li>
@@ -49,8 +63,8 @@ export default function CommunityResearchSection({
               </h3>
               <p className="text-on-surface-variant leading-relaxed text-[15px]">
                 Disclosure packets, resale certificates, clubhouse capital schedules,
-                builder deadlines—organized so diligence supports the lifestyle narrative,
-                not spreadsheets for their own sake.
+                builder rate-buydowns versus resale concessions—organized so diligence
+                supports the lifestyle narrative, not spreadsheets for their own sake.
               </p>
             </li>
           </ul>
@@ -59,7 +73,7 @@ export default function CommunityResearchSection({
           <div className="relative aspect-[4/3] border border-outline/15 overflow-hidden bg-surface-container">
             <Image
               src={RESEARCH_IMAGE}
-              alt="Market notes, tablet, and workspace suggesting research-driven analysis — Summerlin real estate advisory"
+              alt="Market notes, tablet, and workspace suggesting research-driven analysis — Summerlin West real estate advisory"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -67,7 +81,7 @@ export default function CommunityResearchSection({
           </div>
           <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-primary text-on-primary px-5 py-4 max-w-[220px] border border-on-primary/20">
             <p className="text-[10px] font-bold tracking-[0.14em] uppercase leading-snug">
-              Lifestyle + market intel for decisive moves
+              89138 · 89134 · village-level intel for decisive moves
             </p>
           </div>
         </div>
