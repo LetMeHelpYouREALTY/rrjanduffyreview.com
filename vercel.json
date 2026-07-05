@@ -1,5 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm install",
-  "buildCommand": "npm run build"
+  "buildCommand": "npm run build",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "drjanduffyreviews.com"
+        }
+      ],
+      "destination": "https://www.drjanduffyreviews.com/:path*",
+      "statusCode": 308
+    }
+  ]
 }
