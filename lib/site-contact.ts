@@ -3,6 +3,8 @@
  * Mirror values with the paired Google Business Profile and Vercel env overrides.
  */
 
+import { APEX_HOST, CANONICAL_HOST, CANONICAL_SITE_ORIGIN } from "@/lib/canonical-host";
+
 export const AGENT_DISPLAY_NAME = "Dr. Jan Duffy";
 export const AGENT_TITLE = "REALTOR®";
 export const NEVADA_LICENSE = "S.0197614.LLC";
@@ -38,7 +40,7 @@ export const OFFICE_HOURS_LINES = [
   "Saturday–Sunday: By appointment",
 ] as const;
 
-const DEFAULT_SITE_URL = "https://www.drjanduffyreviews.com";
+const DEFAULT_SITE_URL = CANONICAL_SITE_ORIGIN;
 
 /** Strip trailing slashes and common env typos (e.g. regex `$` anchor pasted into BASE_URL). */
 function sanitizePublicOrigin(raw: string): string {
@@ -57,9 +59,22 @@ export function getPublicSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_SITE_URL;
   const noTrail = sanitizePublicOrigin(raw);
   if (!noTrail) return DEFAULT_SITE_URL;
-  if (/^https?:\/\//i.test(noTrail)) return noTrail;
-  const host = noTrail.replace(/^\/+/, "");
-  return sanitizePublicOrigin(`https://${host}`) || DEFAULT_SITE_URL;
+  let resolved: string;
+  if (/^https?:\/\//i.test(noTrail)) {
+    resolved = noTrail;
+  } else {
+    const host = noTrail.replace(/^\/+/, "");
+    resolved = sanitizePublicOrigin(`https://${host}`) || DEFAULT_SITE_URL;
+  }
+  try {
+    const u = new URL(resolved);
+    if (u.hostname.toLowerCase() === APEX_HOST) {
+      u.hostname = CANONICAL_HOST;
+    }
+    return u.origin;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
 }
 
 export function formatTelHref(displayPhone: string): string {

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { CANONICAL_HOST } from "@/lib/canonical-host";
 import { getPublicSiteUrl } from "@/lib/site-contact";
 
 /**
@@ -7,7 +8,6 @@ import { getPublicSiteUrl } from "@/lib/site-contact";
  */
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getPublicSiteUrl().replace(/\/$/, "");
-  const host = new URL(siteUrl).host;
 
   return {
     rules: {
@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         "/_next/static/media/",
       ],
     },
-    host,
+    host: CANONICAL_HOST,
     sitemap: `${siteUrl}/sitemap.xml`,
   };
 }
