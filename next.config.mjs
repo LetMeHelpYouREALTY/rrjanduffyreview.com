@@ -29,6 +29,21 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      /** GSC 404 on /$ — regex-anchor typo or RSC `$` marker misparsed as URL */
+      {
+        source: "/\\$",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/%24",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

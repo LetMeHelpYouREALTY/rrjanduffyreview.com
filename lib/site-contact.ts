@@ -40,18 +40,26 @@ export const OFFICE_HOURS_LINES = [
 
 const DEFAULT_SITE_URL = "https://www.drjanduffyreviews.com";
 
+/** Strip trailing slashes and common env typos (e.g. regex `$` anchor pasted into BASE_URL). */
+function sanitizePublicOrigin(raw: string): string {
+  return raw
+    .trim()
+    .replace(/[\s$#]+$/g, "")
+    .replace(/\/+$/, "");
+}
+
 /**
  * Canonical site origin for metadata, sitemap, and JSON-LD.
  * Ensures a valid absolute URL so `new URL(...)` in layout metadata never throws
  * when env sets `NEXT_PUBLIC_BASE_URL` without a scheme (e.g. `www.example.com`).
  */
 export function getPublicSiteUrl(): string {
-  const raw = (process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_SITE_URL).trim();
-  const noTrail = raw.replace(/\/+$/, "");
+  const raw = process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_SITE_URL;
+  const noTrail = sanitizePublicOrigin(raw);
   if (!noTrail) return DEFAULT_SITE_URL;
   if (/^https?:\/\//i.test(noTrail)) return noTrail;
   const host = noTrail.replace(/^\/+/, "");
-  return `https://${host}`.replace(/\/+$/, "");
+  return sanitizePublicOrigin(`https://${host}`) || DEFAULT_SITE_URL;
 }
 
 export function formatTelHref(displayPhone: string): string {

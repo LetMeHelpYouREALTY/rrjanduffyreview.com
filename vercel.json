@@ -4,6 +4,16 @@
   "buildCommand": "npm run build",
   "redirects": [
     {
+      "source": "/\\$",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
+      "source": "/%24",
+      "destination": "/",
+      "statusCode": 308
+    },
+    {
       "source": "/:path*",
       "has": [
         {
