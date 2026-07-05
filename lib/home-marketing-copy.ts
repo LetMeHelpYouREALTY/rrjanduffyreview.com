@@ -16,30 +16,31 @@ export function expandMarketingTokens(s: string): string {
 }
 
 export const HOME_MARKETING_COPY_RAW = {
-  heroEyebrow: "Sun City · Del Webb · Heritage at Stonebridge",
+  heroEyebrow:
+    "89138 Stonebridge · 89134 Sun City · Heritage at Stonebridge 55+",
 
   heroSupportingParagraph:
-    "Buyers lean on {{agent}} for side-by-side reads of HOA governance, club amenities, floorplan practicality, resale momentum, and commute reality across Summerlin—including Sun City, Del Webb, Heritage at Stonebridge—and the wider Las Vegas Valley. {{brokerage}}.",
+    "Buyers lean on {{agent}} for side-by-side reads of HOA governance, clubhouse programming, floorplan practicality, and commute timing across Summerlin West—Stonebridge, Kestrel, Redpoint, Grand Park—and Del Webb Sun City Summerlin (7,700+ resale homes, four recreation centers, 54 holes of golf) versus Lennar Heritage at Stonebridge guard-gated 55+ in zip 89138. {{brokerage}}.",
 
-  listingsHeading: "Active listings across Summerlin & the Valley",
+  listingsHeading: "Live MLS — Summerlin West 89138 & Sun City 89134",
 
   listingsBlurb:
-    "Live inventory synced through {{agent}}'s RealScout MLS feed—from Sun City and Del Webb resale to newer Stonebridge-era product and classic Summerlin West streets. Dial in criteria with the search module above whenever you want to widen filters.",
+    "RealScout inventory synced through {{agent}}'s feed—Sun City and Del Webb resale near Del Webb Boulevard, Heritage at Stonebridge and newer Stonebridge Village product off Red Rock Canyon, plus Kestrel and Redpoint Square new construction. Filter by village, price, beds, and HOA line before you tour.",
 
-  mlsSearchHeading: "Live MLS search — Summerlin & the Valley",
+  mlsSearchHeading: "RealScout search — villages, zips, and price bands",
 
   mlsSearchBlurb:
-    "Run the same RealScout MLS module as {{agent}}'s listings hub—refine price, beds, baths, and community lines before you scan office-sponsored inventory below.",
+    "Same MLS module as {{agent}}'s listings hub—dial in 89138 Summerlin West, 89134 Sun City, or widen to the valley before scanning office-sponsored inventory below.",
 
-  marketMetricsHeading: "Summerlin & 55+ market indicators",
+  marketMetricsHeading: "Summerlin & 55+ pacing — directional, not MLS live",
 
   marketMetricsBlurb:
-    "Directional pacing charts buyers review with {{agent}}—then stress-tested against comp-level resale in Sun City, Del Webb, Heritage at Stonebridge, and broader Summerlin villages.",
+    "Directional framing buyers review with {{agent}}—valley median near $450K, Summerlin South near $847K, Sun City Summerlin near $480K (third-party May–Jun 2026 rollups)—then stress-tested against comp-level resale in Stonebridge, Kestrel, and Del Webb corridors.",
 
-  contactHeading: "Book a cross-community consult",
+  contactHeading: "Book a village-by-village consult",
 
   contactBlurb:
-    "Share your short list—Sun City, Del Webb, Heritage at Stonebridge, or resale Summerlin blocks—and we translate live comps, HOA disclosures, and timelines into a written action plan before you tour.",
+    "Share your short list—Sun City 89134, Heritage at Stonebridge 89138, Kestrel new-build, or resale Summerlin West blocks—and we translate live comps, HOA disclosures, and timelines into a written action plan before you tour.",
 } as const;
 
 export type HomeMarketingCopy = {

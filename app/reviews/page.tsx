@@ -4,9 +4,9 @@ import { buildSubpageMetadata } from "@/lib/seo-pages";
 import { ROUTES } from "@/lib/site-routes";
 
 export const metadata: Metadata = buildSubpageMetadata({
-  title: "Client reviews — Summerlin & Las Vegas Valley",
+  title: "Client reviews — 89134 Sun City & 89138 Summerlin West",
   description:
-    "Client feedback on Sun City, Del Webb, Heritage at Stonebridge, Summerlin West, Sky Canyon, and North Las Vegas transactions with Dr. Jan Duffy, REALTOR®.",
+    "Client feedback on Sun City Summerlin, Heritage at Stonebridge, Kestrel, Redpoint, Summerlin West villages, Sky Canyon, and North Las Vegas transactions with Dr. Jan Duffy, REALTOR®.",
   path: ROUTES.reviews,
 });
 

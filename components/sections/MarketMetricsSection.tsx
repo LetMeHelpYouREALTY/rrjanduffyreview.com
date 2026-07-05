@@ -7,6 +7,7 @@ import {
 import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
 import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import { homeMarketingCopy } from "@/lib/home-marketing-copy";
+import { MARKET_SNAPSHOT } from "@/lib/hyperlocal-summerlin";
 import { AGENT_DISPLAY_NAME } from "@/lib/site-contact";
 
 export default function MarketMetricsSection({
@@ -103,10 +104,13 @@ export default function MarketMetricsSection({
           </p>
           <p className="text-on-secondary-container leading-relaxed text-[15px]">
             Summerlin payoff comes from marrying HOA culture, clubhouse programming,
-            ingress/egress timing, elevation, schools (where applicable), and resale
-            velocity—not just list price averages. Book a consult to reconcile these
-            inputs with inventory that matches <em>your</em> calendar and cash-flow
-            comfort.
+            ingress/egress timing, elevation, and resale velocity—not headline medians
+            alone. Directional May–Jun 2026 rollups cite Las Vegas near{" "}
+            {MARKET_SNAPSHOT.lasVegasMedianDisplay}, Summerlin South near{" "}
+            {MARKET_SNAPSHOT.summerlinSouthMedianDisplay}, and Sun City Summerlin near{" "}
+            {MARKET_SNAPSHOT.sunCityMedianDisplay} (~{MARKET_SNAPSHOT.sunCityMedianDom}{" "}
+            median days on market). Book a consult to reconcile these inputs with
+            inventory that matches <em>your</em> calendar and cash-flow comfort.
           </p>
         </div>
       </div>
