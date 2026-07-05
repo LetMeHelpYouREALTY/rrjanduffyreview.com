@@ -42,6 +42,9 @@ const consultationHref = buildCalendlyUrl(
   },
 );
 
+const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+
 /** Layout-level defaults; homepage overrides via app/page.tsx. */
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -51,6 +54,9 @@ export const metadata: Metadata = {
       "Dr. Jan Duffy, REALTOR® — Summerlin communities, Sun City & Stonebridge guidance",
   },
   robots: { index: true, follow: true },
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
 };
 
 export default function RootLayout({
