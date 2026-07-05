@@ -4,6 +4,21 @@
   "buildCommand": "npm run build",
   "redirects": [
     {
+      "source": "/mower",
+      "destination": "/reviews",
+      "statusCode": 308
+    },
+    {
+      "source": "/ecoBright",
+      "destination": "/reviews",
+      "statusCode": 308
+    },
+    {
+      "source": "/ecoSmart",
+      "destination": "/reviews",
+      "statusCode": 308
+    },
+    {
       "source": "/\\$",
       "destination": "/",
       "statusCode": 308

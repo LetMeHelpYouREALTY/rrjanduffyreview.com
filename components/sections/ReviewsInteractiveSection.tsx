@@ -90,7 +90,7 @@ export default function ReviewsInteractiveSection() {
                 "Age-qualified Summerlin village living near Stonebridge Park",
               ],
               ["Summerlin West", "Classic master plan streets, schools, and mixed product types"],
-              ["Lone Mountain", "Family-friendly pockets with mountain sightlines"],
+              ["Lone Mountain", "Residential pockets with mountain sightlines and varied lot sizes"],
               [
                 "Sky Canyon & North Las Vegas",
                 "Newer construction momentum and value-forward corridors",

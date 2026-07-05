@@ -13,11 +13,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const path of Object.values(ROUTES)) {
     if (path === "/") continue;
+    const priority =
+      path === ROUTES.reviews
+        ? 0.95
+        : path.startsWith(ROUTES.communities)
+          ? 0.85
+          : 0.8;
     urls.push({
       url: `${base}${path}`,
       lastModified: now,
-      changeFrequency: "monthly",
-      priority: path.startsWith(ROUTES.communities) ? 0.85 : 0.8,
+      changeFrequency: path === ROUTES.reviews ? "weekly" : "monthly",
+      priority,
     });
   }
 

@@ -42,6 +42,22 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      /** Removed e-commerce demo product slugs → real estate reviews hub */
+      {
+        source: "/mower",
+        destination: "/reviews",
+        permanent: true,
+      },
+      {
+        source: "/ecoBright",
+        destination: "/reviews",
+        permanent: true,
+      },
+      {
+        source: "/ecoSmart",
+        destination: "/reviews",
+        permanent: true,
+      },
     ];
   },
 };
