@@ -24,6 +24,12 @@ export function SiteHeader({ consultationHref }: SiteHeaderProps) {
           className="order-3 lg:order-2 flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-7 w-full lg:w-auto lg:justify-center"
           aria-label="Primary"
         >
+          <Link className={navClassName} href={ROUTES.communities}>
+            Communities
+          </Link>
+          <Link className={navClassName} href={ROUTES.activeAdult}>
+            55+
+          </Link>
           <Link className={navClassName} href={ROUTES.market}>
             Market analysis
           </Link>

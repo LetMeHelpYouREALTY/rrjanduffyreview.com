@@ -48,6 +48,26 @@ export function SiteFooter() {
             </p>
             <ul className="space-y-2 text-sm text-on-surface-variant">
               <li>
+                <Link className="hover:text-primary transition-colors" href={ROUTES.communities}>
+                  Community guides
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-primary transition-colors" href={ROUTES.buyers}>
+                  Buyers
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-primary transition-colors" href={ROUTES.sellers}>
+                  Sellers
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-primary transition-colors" href={ROUTES.activeAdult}>
+                  55+ communities
+                </Link>
+              </li>
+              <li>
                 <Link className="hover:text-primary transition-colors" href={ROUTES.market}>
                   Market analysis
                 </Link>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllCommunitySlugs, communityPath } from "@/lib/community-pages";
 import { getPublicSiteUrl } from "@/lib/site-contact";
 import { ROUTES } from "@/lib/site-routes";
 
@@ -16,7 +17,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}${path}`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: path.startsWith(ROUTES.communities) ? 0.85 : 0.8,
+    });
+  }
+
+  for (const slug of getAllCommunitySlugs()) {
+    urls.push({
+      url: `${base}${communityPath(slug)}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
     });
   }
 

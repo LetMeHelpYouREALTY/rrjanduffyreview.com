@@ -10,6 +10,13 @@ export const ROUTES = {
   faq: "/faq",
   contact: "/contact",
   trust: "/trust",
+  communities: "/communities",
+  buyers: "/buyers",
+  sellers: "/sellers",
+  activeAdult: "/active-adult",
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;
+
+/** Static paths included in sitemap beyond ROUTES values. */
+export const SITEMAP_COMMUNITY_PREFIX = `${ROUTES.communities}/` as const;
