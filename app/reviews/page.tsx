@@ -6,7 +6,6 @@ import { buildSubpageMetadata } from "@/lib/seo-pages";
 import {
   AGENT_DISPLAY_NAME,
   BUSINESS_NAME,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import { ROUTES } from "@/lib/site-routes";
 import { buildReviewsRouteJsonLd } from "@/lib/structured-data-reviews-page";
@@ -15,7 +14,7 @@ const REVIEWS_TITLE =
   "Client reviews — Sun City, Stonebridge & Summerlin West | Dr. Jan Duffy";
 
 const REVIEWS_DESCRIPTION =
-  "Read client testimonials for Dr. Jan Duffy, REALTOR®—Sun City Summerlin, Heritage at Stonebridge, Summerlin West, Sky Canyon, and North Las Vegas transactions. Berkshire Hathaway HomeServices Nevada Properties.";
+  "Read client testimonials for Dr. Jan Duffy, REALTOR®—Sun City Summerlin, Heritage at Stonebridge, Summerlin West, Sky Canyon, and North Las Vegas transactions.";
 
 export const metadata: Metadata = {
   ...buildSubpageMetadata({
@@ -52,8 +51,7 @@ export default function ReviewsPage() {
             </p>
             <p className="text-on-surface-variant leading-relaxed text-[15px] md:text-base max-w-3xl">
               {BUSINESS_NAME} collects buyer and seller feedback from{" "}
-              {AGENT_DISPLAY_NAME}, Nevada REALTOR®, supervised by{" "}
-              {SUPERVISING_BROKERAGE}. Quotes reference real community comparisons—
+              {AGENT_DISPLAY_NAME}, Nevada REALTOR® in real estate since 1983. Quotes reference real community comparisons—
               including{" "}
               <Link
                 href={communityPath("sun-city-summerlin")}

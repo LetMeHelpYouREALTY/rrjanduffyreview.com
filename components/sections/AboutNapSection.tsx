@@ -9,14 +9,12 @@ import {
   BUSINESS_NAME,
   CONTACT_EMAIL,
   formatTelHref,
-  NEVADA_LICENSE,
   OFFICE_HOURS_LINES,
   PRIMARY_LOCALITY,
   PRIMARY_PHONE_DISPLAY,
   PRIMARY_POSTAL,
   PRIMARY_REGION,
   PRIMARY_STREET,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import {
   buildMapsSearchUrl,
@@ -58,8 +56,7 @@ export default function AboutNapSection({
               Representation tuned to nuanced communities
             </p>
             <p className="text-on-surface-variant mt-5 leading-relaxed text-[15px] md:text-base">
-              Nevada {AGENT_TITLE}, license {NEVADA_LICENSE}, supervised by{" "}
-              {SUPERVISING_BROKERAGE}—guided counsel for HOA-led lifestyle products such as Sun City
+              Nevada {AGENT_TITLE}, in real estate since 1983—guided counsel for HOA-led lifestyle products such as Sun City
               and Del Webb, Heritage at Stonebridge resale, investor-friendly corridors,
               and hybrid relocation timelines across the Las Vegas Valley.
             </p>

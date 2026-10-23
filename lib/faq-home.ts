@@ -5,13 +5,10 @@ import {
   AGENT_DISPLAY_NAME,
   AGENT_TITLE,
   BUSINESS_NAME,
-  NEVADA_LICENSE,
   PRIMARY_ADDRESS_SINGLE_LINE,
   PRIMARY_PHONE_DISPLAY,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import {
-  BHHS_NEVADA_PUBLIC_URL,
   HUD_FAIR_HOUSING_URL,
   NAR_CODE_OF_ETHICS_URL,
   NEVADA_RED_PORTAL_URL,
@@ -43,19 +40,19 @@ export function getHomeFaqItems(): FaqItem[] {
     },
     {
       id: "broker-license",
-      question: `What brokerage and license are listed for ${AGENT_DISPLAY_NAME}?`,
-      answer: `${AGENT_DISPLAY_NAME} is a Nevada ${AGENT_TITLE} with license ${NEVADA_LICENSE}, supervised by ${SUPERVISING_BROKERAGE}. Nevada’s public license lookup is maintained by the Real Estate Division at ${NEVADA_RED_PORTAL_URL}—use it to confirm active licensure and public record details.`,
+      question: `How do I confirm ${AGENT_DISPLAY_NAME}’s license?`,
+      answer: `${AGENT_DISPLAY_NAME} is a Nevada ${AGENT_TITLE}, in real estate since 1983; her supervising brokerage and license number appear in the site footer. Nevada’s public license lookup is maintained by the Real Estate Division at ${NEVADA_RED_PORTAL_URL}—use it to confirm active licensure and public record details.`,
     },
     {
       id: "verify-license",
       question:
         "How can I independently verify a Nevada real estate license number?",
-      answer: `Visit ${NEVADA_RED_PORTAL_URL} (Nevada Real Estate Division). Search by name or license number. This page lists ${NEVADA_LICENSE} for ${AGENT_DISPLAY_NAME} to match what appears on required consumer disclosures.`,
+      answer: `Visit ${NEVADA_RED_PORTAL_URL} (Nevada Real Estate Division). Search by name or license number. The license number in this site’s footer for ${AGENT_DISPLAY_NAME} matches what appears on required consumer disclosures.`,
     },
     {
       id: "supervising-brokerage",
       question: `Who is the supervising real estate brokerage for ${AGENT_DISPLAY_NAME}?`,
-      answer: `${SUPERVISING_BROKERAGE} is named on this site as the supervising brokerage, per Nevada broker supervision and advertising rules. You can learn more about the firm at ${BHHS_NEVADA_PUBLIC_URL}.`,
+      answer: `The supervising brokerage is named in this site’s footer, per Nevada broker supervision and advertising rules.`,
     },
     {
       id: "fair-housing",

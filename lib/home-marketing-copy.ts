@@ -19,7 +19,7 @@ export const HOME_MARKETING_COPY_RAW = {
   heroEyebrow: "Sun City · Del Webb · Heritage at Stonebridge",
 
   heroSupportingParagraph:
-    "Buyers lean on {{agent}} for side-by-side reads of HOA governance, club amenities, floorplan practicality, resale momentum, and commute reality across Summerlin—including Sun City, Del Webb, Heritage at Stonebridge—and the wider Las Vegas Valley. {{brokerage}}.",
+    "Buyers lean on {{agent}} for side-by-side reads of HOA governance, club amenities, floorplan practicality, resale momentum, and commute reality across Summerlin—including Sun City, Del Webb, Heritage at Stonebridge—and the wider Las Vegas Valley.",
 
   listingsHeading: "Active listings across Summerlin & the Valley",
 

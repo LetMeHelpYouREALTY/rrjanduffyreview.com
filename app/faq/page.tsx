@@ -7,7 +7,7 @@ import { ROUTES } from "@/lib/site-routes";
 export const metadata: Metadata = buildSubpageMetadata({
   title: "FAQ — MLS, license verification & fair housing",
   description:
-    "Common Nevada brokerage questions: RealScout MLS widgets, supervising brokerage disclosure, verifying license S.0197614.LLC, fair housing guidance, GBP reviews.",
+    "Common Nevada brokerage questions: RealScout MLS widgets, supervising brokerage disclosure, verifying a Nevada license, fair housing guidance, GBP reviews.",
   path: ROUTES.faq,
 });
 

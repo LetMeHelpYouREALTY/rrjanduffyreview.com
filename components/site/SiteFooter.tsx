@@ -5,8 +5,6 @@ import { buildCalendlyUrl } from "@/lib/calendly";
 import {
   AGENT_DISPLAY_NAME,
   BUSINESS_NAME,
-  NEVADA_LICENSE,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import { ROUTES } from "@/lib/site-routes";
 
@@ -39,7 +37,7 @@ export function SiteFooter() {
             </p>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               Summerlin-focused reviews, Sun City &amp; Heritage at Stonebridge context,
-              RealScout-backed search. {SUPERVISING_BROKERAGE}.
+              RealScout-backed search.
             </p>
           </div>
           <div>
@@ -160,10 +158,13 @@ export function SiteFooter() {
         </div>
         <div className="mt-12 pt-8 border-t border-outline/15 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-on-surface-variant">
           <p>
-            © {new Date().getFullYear()} {AGENT_DISPLAY_NAME}. {BUSINESS_NAME} · Nev. license{" "}
-            {NEVADA_LICENSE}. Equal housing opportunity.
+            © {new Date().getFullYear()} {AGENT_DISPLAY_NAME}. {BUSINESS_NAME}. Equal housing
+            opportunity.
           </p>
-          <p className="text-on-surface-variant/80">{SUPERVISING_BROKERAGE}</p>
+          <p className="text-on-surface-variant/80">
+            Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License
+            S.0197614.LLC
+          </p>
         </div>
       </div>
     </footer>

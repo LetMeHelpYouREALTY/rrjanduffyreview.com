@@ -3,11 +3,8 @@ import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOffic
 import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
 import {
   AGENT_DISPLAY_NAME,
-  NEVADA_LICENSE,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import {
-  BHHS_NEVADA_PUBLIC_URL,
   HUD_FAIR_HOUSING_URL,
   NAR_CODE_OF_ETHICS_URL,
   NEVADA_RED_PORTAL_URL,
@@ -56,11 +53,11 @@ export default function TrustDisclosuresSection({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <div className="border border-outline/15 bg-surface p-6 rounded-r-lg">
             <h3 className="font-display text-lg font-semibold text-on-surface mb-2">
-              License &amp; brokerage (Nevada)
+              License verification (Nevada)
             </h3>
             <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-              {AGENT_DISPLAY_NAME} is licensed in Nevada ({NEVADA_LICENSE}) and affiliated with{" "}
-              {SUPERVISING_BROKERAGE}, named on this site as the supervising brokerage for consumer
+              {AGENT_DISPLAY_NAME} is a licensed Nevada REALTOR®, in real estate since 1983. The
+              supervising brokerage and license number appear in the site footer for consumer
               transparency (including{" "}
               <abbr title="Nevada Administrative Code">NAC</abbr> 645.610-style visibility).
             </p>
@@ -73,16 +70,6 @@ export default function TrustDisclosuresSection({
                   className="text-primary font-semibold underline-offset-4 hover:underline"
                 >
                   Nevada Real Estate Division — verify a license
-                </a>
-              </li>
-              <li>
-                <a
-                  href={BHHS_NEVADA_PUBLIC_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-semibold underline-offset-4 hover:underline"
-                >
-                  Berkshire Hathaway HomeServices Nevada Properties
                 </a>
               </li>
             </ul>

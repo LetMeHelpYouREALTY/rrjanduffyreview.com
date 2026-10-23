@@ -8,8 +8,6 @@ import {
   AGENT_DISPLAY_NAME,
   AGENT_TITLE,
   BUSINESS_NAME,
-  NEVADA_LICENSE,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import { DeferredOfficeListingsBand } from "@/components/realscout/DeferredOfficeListingsBand";
 import { DeferredSimpleSearchBand } from "@/components/realscout/DeferredSimpleSearchBand";
@@ -79,12 +77,9 @@ export function HomeLanding() {
       <div className="border-b border-outline/10 bg-surface-container-low">
         <div className="max-w-content mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-[10px] font-bold tracking-[0.12em] uppercase text-on-surface-variant">
-              {SUPERVISING_BROKERAGE}
-            </p>
             <p className="font-display text-lg text-on-surface mt-1">{BUSINESS_NAME}</p>
             <p className="text-sm text-on-surface-variant mt-0.5">
-              {AGENT_DISPLAY_NAME}, {AGENT_TITLE} · Nev. {NEVADA_LICENSE}
+              {AGENT_DISPLAY_NAME}, {AGENT_TITLE} · In real estate since 1983
             </p>
           </div>
           <div className="flex items-center gap-3 border border-outline/15 bg-surface px-4 py-2">
@@ -164,8 +159,8 @@ export function HomeLanding() {
               and RealScout sourcing.
             </NavCard>
             <NavCard href={ROUTES.contact} title="Contact">
-              Briefing requests, tours, Berkshire Hathaway HomeServices storefronts,
-              and direct dial MAP links.
+              Briefing requests, tours, office locations, and direct dial MAP
+              links.
             </NavCard>
             <NavCard href={ROUTES.trust} title="Trust & disclosures">
               NRED links, MLS reliability language, and brokerage supervision

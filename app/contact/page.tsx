@@ -9,9 +9,9 @@ import { buildSubpageMetadata } from "@/lib/seo-pages";
 import { ROUTES } from "@/lib/site-routes";
 
 export const metadata: Metadata = buildSubpageMetadata({
-  title: "Contact & Berkshire Hathaway office locations",
+  title: "Contact & office locations",
   description:
-    "Schedule a valuation briefing or tour through Calendly, call verified NAP lines, directions to Berkshire Hathaway HomeServices Nevada Properties offices, Summerlin consultations.",
+    "Schedule a valuation briefing or tour through Calendly, call verified NAP lines, directions to office locations, Summerlin consultations.",
   path: ROUTES.contact,
 });
 

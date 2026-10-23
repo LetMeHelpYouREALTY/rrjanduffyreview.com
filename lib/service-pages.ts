@@ -2,7 +2,6 @@ import type { FaqItem } from "@/lib/faq-home";
 import {
   AGENT_DISPLAY_NAME,
   PRIMARY_PHONE_DISPLAY,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import { ROUTES } from "@/lib/site-routes";
 
@@ -30,7 +29,7 @@ export const BUYERS_PAGE: ServicePage = {
   path: ROUTES.buyers,
   seoTitle: "Buy a home in Summerlin & Las Vegas Valley — buyer representation",
   seoDescription:
-    "Buyer representation for Summerlin West, Sun City Summerlin, Heritage at Stonebridge, and Las Vegas Valley MLS search—Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties, Nevada license S.0197614.LLC.",
+    "Buyer representation for Summerlin West, Sun City Summerlin, Heritage at Stonebridge, and Las Vegas Valley MLS search—Dr. Jan Duffy, Nevada REALTOR®.",
   h1: "Buy in Summerlin, Sun City, or the Las Vegas Valley",
   eyebrow: "Buyer representation",
   intro:
@@ -78,11 +77,11 @@ export const SELLERS_PAGE: ServicePage = {
   path: ROUTES.sellers,
   seoTitle: "Sell a Summerlin or Las Vegas Valley home — listing strategy",
   seoDescription:
-    "Listing strategy for Summerlin West, Sun City, Heritage at Stonebridge, and Las Vegas Valley sellers—pricing, prep, MLS exposure, and Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Listing strategy for Summerlin West, Sun City, Heritage at Stonebridge, and Las Vegas Valley sellers—pricing, prep, MLS exposure, and Dr. Jan Duffy, Nevada REALTOR®.",
   h1: "Sell in Summerlin or the Las Vegas Valley",
   eyebrow: "Seller representation",
   intro:
-    "Selling in Sun City, Stonebridge, or broader Summerlin West means pricing against village-specific comps—not valley medians alone. Listing strategy covers prep, MLS exposure through Berkshire Hathaway HomeServices Nevada Properties, and negotiation framing.",
+    "Selling in Sun City, Stonebridge, or broader Summerlin West means pricing against village-specific comps—not valley medians alone. Listing strategy covers prep, MLS exposure, and negotiation framing.",
   bullets: [
     {
       title: "Comp-level pricing",
@@ -112,7 +111,7 @@ export const SELLERS_PAGE: ServicePage = {
     {
       id: "sellers-brokerage",
       question: "What brokerage will appear on my listing?",
-      answer: `Listings are marketed through ${SUPERVISING_BROKERAGE} with ${AGENT_DISPLAY_NAME}, Nevada REALTOR®.`,
+      answer: `Listings are marketed by ${AGENT_DISPLAY_NAME}, Nevada REALTOR®, in real estate since 1983.`,
     },
   ],
   serviceType: "Residential seller representation",

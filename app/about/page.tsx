@@ -6,7 +6,7 @@ import { ROUTES } from "@/lib/site-routes";
 export const metadata: Metadata = buildSubpageMetadata({
   title: "About Dr. Jan Duffy — office, NAP & Google Maps",
   description:
-    "Nevada REALTOR®, Berkshire Hathaway HomeServices Nevada Properties, verified phone and address synced with Google Business Profile, Stonebridge-focused Summerlin advisory.",
+    "Nevada REALTOR® in real estate since 1983, verified phone and address synced with Google Business Profile, Stonebridge-focused Summerlin advisory.",
   path: ROUTES.about,
 });
 

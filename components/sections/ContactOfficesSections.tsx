@@ -116,7 +116,7 @@ export function OfficesBandSection() {
       <div className="max-w-content mx-auto px-4 md:px-8 text-center">
         <h2 className="font-display text-3xl font-medium mb-4 tracking-tight">Our offices</h2>
         <p className="text-lg text-inverse-on-surface/85 mb-10 max-w-2xl mx-auto leading-relaxed">
-          {AGENT_DISPLAY_NAME} meets clients at BHHS Nevada Properties storefronts or virtually while
+          {AGENT_DISPLAY_NAME} meets clients at these office locations or virtually while
           they compare Sun City, Stonebridge, and wider Valley opportunities.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">

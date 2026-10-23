@@ -2,7 +2,6 @@ import type { FaqItem } from "@/lib/faq-home";
 import {
   AGENT_DISPLAY_NAME,
   PRIMARY_PHONE_DISPLAY,
-  SUPERVISING_BROKERAGE,
 } from "@/lib/site-contact";
 import { ROUTES } from "@/lib/site-routes";
 
@@ -39,7 +38,7 @@ const COMMUNITIES: CommunityPage[] = [
     zip: "89134",
     seoTitle: "Sun City Summerlin 89134 — Del Webb 55+ homes & reviews",
     seoDescription:
-      "Sun City Summerlin (89134) buyer guide: Del Webb 55+ resale, four recreation centers, 54 holes of golf, HOA context, and RealScout MLS search with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Sun City Summerlin (89134) buyer guide: Del Webb 55+ resale, four recreation centers, 54 holes of golf, HOA context, and RealScout MLS search with Dr. Jan Duffy, REALTOR®.",
     h1: "Sun City Summerlin — Del Webb 55+ in zip 89134",
     eyebrow: "89134 · Del Webb active adult",
     intro:
@@ -194,7 +193,7 @@ const COMMUNITIES: CommunityPage[] = [
     zip: "89138",
     seoTitle: "Summerlin West 89138 — villages, MLS search & market framing",
     seoDescription:
-      "Summerlin West (89138) villages—Stonebridge, Kestrel, Redpoint, Grand Park, The Vistas, The Paseos—and buyer guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Summerlin West (89138) villages—Stonebridge, Kestrel, Redpoint, Grand Park, The Vistas, The Paseos—and buyer guidance with Dr. Jan Duffy, REALTOR®.",
     h1: "Summerlin West — villages in zip 89138",
     eyebrow: "89138 · west of the 215 Beltway",
     intro:
@@ -279,7 +278,7 @@ const COMMUNITIES: CommunityPage[] = [
       {
         id: "kestrel-agent",
         question: `Who represents buyers in Kestrel?`,
-        answer: `${AGENT_DISPLAY_NAME} is a Nevada REALTOR® supervised by ${SUPERVISING_BROKERAGE}, with Summerlin West village-level guidance and RealScout MLS access on this site.`,
+        answer: `${AGENT_DISPLAY_NAME} is a Nevada REALTOR® in real estate since 1983, with Summerlin West village-level guidance and RealScout MLS access on this site.`,
       },
     ],
     relatedSlugs: ["summerlin-west", "redpoint-summerlin", "stonebridge-village"],
