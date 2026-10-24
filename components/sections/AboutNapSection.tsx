@@ -45,7 +45,7 @@ export default function AboutNapSection({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14">
           <div>
             <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-secondary mb-3">
-              Meticulous representation
+              Top 1% Las Vegas REALTOR®
             </p>
             {headingLevel === "h1" ? (
               <h1 className={nameCls}>{AGENT_DISPLAY_NAME}</h1>
