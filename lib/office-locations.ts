@@ -9,7 +9,7 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
   {
     name: "Centennial Hills",
     address: "9406 Del Webb Boulevard, Las Vegas, NV 89134",
-    phone: "(702) 718-0043",
+    phone: "(702) 500-1955",
     maps: "https://www.google.com/maps/search/?api=1&query=9406+Del+Webb+Boulevard,+Las+Vegas,+NV+89134",
   },
   {
@@ -27,13 +27,13 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
   {
     name: "Summerlin",
     address: "1490 Center Crossing Rd, Las Vegas, NV 89144",
-    phone: "(702) 903-1952",
+    phone: "(702) 500-1955",
     maps: "https://www.google.com/maps/search/?api=1&query=1490+Center+Crossing+Rd,+Las+Vegas,+NV+89144",
   },
   {
     name: "Sahara",
     address: "7475 W Sahara Ave #100, Las Vegas, NV 89117",
-    phone: "(702) 299-6607",
+    phone: "(702) 500-1955",
     maps: "https://www.google.com/maps/search/?api=1&query=7475+W+Sahara+Ave+%23100,+Las+Vegas,+NV+89117",
   },
   {
@@ -45,7 +45,7 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
   {
     name: "North Las Vegas",
     address: "921 South Main Street, Las Vegas, NV 89101",
-    phone: "(702) 500-1980",
+    phone: "(702) 500-1955",
     maps: "https://www.google.com/maps/search/?api=1&query=921+South+Main+Street,+Las+Vegas,+NV+89101",
   },
 ];
