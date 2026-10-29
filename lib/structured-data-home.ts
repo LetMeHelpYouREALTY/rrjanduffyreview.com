@@ -100,13 +100,6 @@ export function buildHomeStructuredDataGraph(params: {
       telephone: loc.phone,
     })),
     worksFor: { "@id": brokerageId },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: Number(avg.toFixed(1)),
-      reviewCount: params.reviews.length,
-      bestRating: 5,
-      worstRating: 1,
-    },
   };
 
   if (CONTACT_EMAIL) agent.email = CONTACT_EMAIL;
