@@ -56,7 +56,7 @@ export default function TrustDisclosuresSection({
               License verification (Nevada)
             </h3>
             <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
-              {AGENT_DISPLAY_NAME} is a licensed Nevada REALTOR®, in real estate since 1983. The
+              {AGENT_DISPLAY_NAME} is a licensed Nevada REALTOR®, licensed since 2008 · 35 years in Las Vegas. The
               supervising brokerage and license number appear in the site footer for consumer
               transparency (including{" "}
               <abbr title="Nevada Administrative Code">NAC</abbr> 645.610-style visibility).

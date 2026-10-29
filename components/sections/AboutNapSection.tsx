@@ -45,7 +45,7 @@ export default function AboutNapSection({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14">
           <div>
             <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-secondary mb-3">
-              Top 1% Las Vegas REALTOR®
+              Las Vegas REALTOR®
             </p>
             {headingLevel === "h1" ? (
               <h1 className={nameCls}>{AGENT_DISPLAY_NAME}</h1>
@@ -56,7 +56,7 @@ export default function AboutNapSection({
               Representation tuned to nuanced communities
             </p>
             <p className="text-on-surface-variant mt-5 leading-relaxed text-[15px] md:text-base">
-              Nevada {AGENT_TITLE}, in real estate since 1983—guided counsel for HOA-led lifestyle products such as Sun City
+              Nevada {AGENT_TITLE}, licensed since 2008 · 35 years in Las Vegas—guided counsel for HOA-led lifestyle products such as Sun City
               and Del Webb, Heritage at Stonebridge resale, investor-friendly corridors,
               and hybrid relocation timelines across the Las Vegas Valley.
             </p>

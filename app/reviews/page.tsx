@@ -51,7 +51,7 @@ export default function ReviewsPage() {
             </p>
             <p className="text-on-surface-variant leading-relaxed text-[15px] md:text-base max-w-3xl">
               {BUSINESS_NAME} collects buyer and seller feedback from{" "}
-              {AGENT_DISPLAY_NAME}, Nevada REALTOR® in real estate since 1983. Quotes reference real community comparisons—
+              {AGENT_DISPLAY_NAME}, Nevada REALTOR® licensed since 2008 · 35 years in Las Vegas. Quotes reference real community comparisons—
               including{" "}
               <Link
                 href={communityPath("sun-city-summerlin")}

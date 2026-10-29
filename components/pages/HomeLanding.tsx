@@ -79,7 +79,7 @@ export function HomeLanding() {
           <div>
             <p className="font-display text-lg text-on-surface mt-1">{BUSINESS_NAME}</p>
             <p className="text-sm text-on-surface-variant mt-0.5">
-              {AGENT_DISPLAY_NAME}, {AGENT_TITLE} · In real estate since 1983
+              {AGENT_DISPLAY_NAME}, {AGENT_TITLE} · Licensed since 2008 · 35 years in Las Vegas
             </p>
           </div>
           <div className="flex items-center gap-3 border border-outline/15 bg-surface px-4 py-2">
