@@ -41,7 +41,7 @@ export function getHomeFaqItems(): FaqItem[] {
     {
       id: "broker-license",
       question: `How do I confirm ${AGENT_DISPLAY_NAME}’s license?`,
-      answer: `${AGENT_DISPLAY_NAME} is a Nevada ${AGENT_TITLE}, in real estate since 1983; her supervising brokerage and license number appear in the site footer. Nevada’s public license lookup is maintained by the Real Estate Division at ${NEVADA_RED_PORTAL_URL}—use it to confirm active licensure and public record details.`,
+      answer: `${AGENT_DISPLAY_NAME} is a Nevada ${AGENT_TITLE}, licensed since 2008 · 35 years in Las Vegas; her supervising brokerage and license number appear in the site footer. Nevada’s public license lookup is maintained by the Real Estate Division at ${NEVADA_RED_PORTAL_URL}—use it to confirm active licensure and public record details.`,
     },
     {
       id: "verify-license",

@@ -111,7 +111,7 @@ export const SELLERS_PAGE: ServicePage = {
     {
       id: "sellers-brokerage",
       question: "What brokerage will appear on my listing?",
-      answer: `Listings are marketed by ${AGENT_DISPLAY_NAME}, Nevada REALTOR®, in real estate since 1983.`,
+      answer: `Listings are marketed by ${AGENT_DISPLAY_NAME}, Nevada REALTOR®, licensed since 2008 · 35 years in Las Vegas.`,
     },
   ],
   serviceType: "Residential seller representation",

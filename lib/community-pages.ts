@@ -278,7 +278,7 @@ const COMMUNITIES: CommunityPage[] = [
       {
         id: "kestrel-agent",
         question: `Who represents buyers in Kestrel?`,
-        answer: `${AGENT_DISPLAY_NAME} is a Nevada REALTOR® in real estate since 1983, with Summerlin West village-level guidance and RealScout MLS access on this site.`,
+        answer: `${AGENT_DISPLAY_NAME} is a Nevada REALTOR® licensed since 2008 · 35 years in Las Vegas, with Summerlin West village-level guidance and RealScout MLS access on this site.`,
       },
     ],
     relatedSlugs: ["summerlin-west", "redpoint-summerlin", "stonebridge-village"],

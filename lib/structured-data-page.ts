@@ -172,5 +172,5 @@ export function buildGeoPageStructuredData(params: {
 
 /** Visible license line for geo pages — matches structured data. */
 export function geoPageLicenseLine(): string {
-  return `${AGENT_DISPLAY_NAME}, Nevada REALTOR® · In real estate since 1983`;
+  return `${AGENT_DISPLAY_NAME}, Nevada REALTOR® · Licensed since 2008 · 35 years in Las Vegas`;
 }
