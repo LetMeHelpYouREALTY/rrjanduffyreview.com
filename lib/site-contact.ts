@@ -17,10 +17,10 @@ export const BUSINESS_NAME =
   "Las Vegas Area Real Estate | Homes by Dr. Jan Duffy";
 
 export const PRIMARY_PHONE_DISPLAY =
-  process.env.NEXT_PUBLIC_PRIMARY_PHONE ?? "(702) 903-1952";
+  process.env.NEXT_PUBLIC_PRIMARY_PHONE ?? "(702) 500-1955";
 
 export const PRIMARY_PHONE_TEL =
-  process.env.NEXT_PUBLIC_PRIMARY_PHONE_TEL ?? "+17029031952";
+  process.env.NEXT_PUBLIC_PRIMARY_PHONE_TEL ?? "+17025001955";
 
 export const PRIMARY_STREET =
   process.env.NEXT_PUBLIC_PRIMARY_STREET ?? "1490 Center Crossing Rd";
