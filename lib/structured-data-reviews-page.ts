@@ -50,13 +50,6 @@ export function buildReviewsRouteJsonLd(): Record<string, unknown> {
         "@id": businessId,
         name: BUSINESS_NAME,
         url: base,
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: Number(avg.toFixed(1)),
-          reviewCount: HOME_REVIEW_SEED.length,
-          bestRating: 5,
-          worstRating: 1,
-        },
       },
       ...HOME_REVIEW_SEED.map((r) => ({
         "@type": "Review",
