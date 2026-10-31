@@ -11,6 +11,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { buildCalendlyUrl } from "@/lib/calendly";
 import { getPublicSiteUrl } from "@/lib/site-contact";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const atkinson = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -85,6 +87,8 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <SiteFooter />
         <CalendlySiteWidgets />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
